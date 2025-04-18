@@ -1,0 +1,99 @@
+.login h2 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+button#recover-password {
+  all: unset;
+  margin-top: 5%;
+  transition: transform 0.3s ease;
+}
+
+button#recover-password:hover {
+  all: unset;
+  margin-top: 5%;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.recover-modal,
+#reset-modal {
+  inset: 0;
+  margin: auto;
+  width: min(35%, 1000px);
+  padding: 3rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 0.5s, transform 0.5s, display 0.5s, overlay 0.5s;
+  transition-behavior: allow-discrete;
+}
+
+.recover-modal::backdrop,
+#reset-modal::backdrop {
+  background-color: #00000074;
+  transform: translate(100%);
+  transition: 0.5s transform;
+}
+
+.recover-modal[open],
+#reset-modal[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.recover-modal[open]::backdrop,
+#reset-modal[open]::backdrop {
+  transform: translate(0);
+}
+
+@starting-style {
+  .recover-modal[open] {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  .recover-modal[open]::backdrop {
+    transform: translate(100%);
+  }
+}
+
+.modalrec_container {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+button#close-dialog,
+button#close-reset {
+  all: unset;
+  border: 2px solid black;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  width: 50%;
+  align-self: end;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+button#close-dialog:hover {
+  background-color: white;
+  transform: scale(1.05);
+}
+
+#new-password {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+button#close-reset {
+  padding: 0.5rem 0;
+  transition: transform 0.5s ease;
+}
+
+button#close-reset:hover {
+  background-color: white;
+  transform: scale(1.05);
+}

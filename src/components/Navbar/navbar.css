@@ -1,0 +1,20 @@
+header {
+  position: sticky;
+  top: 0;
+  margin: 0 auto;
+  width: 90%;
+  z-index: 1;
+  border: 1px solid red;
+}
+
+.ul-navBar {
+  width: 90%;
+  list-style-type: none;
+  display: var(--display-flex);
+  justify-content: var(--justify-content-center);
+  gap: 20px;
+}
+
+#profileLink {
+  color: #0056b3;
+}

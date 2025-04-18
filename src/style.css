@@ -1,0 +1,144 @@
+:root {
+  --display-flex: flex;
+  --flex-direction-column: column;
+  --flex-wrap-wrap: wrap;
+  --justify-content-center: center;
+  --justify-content-sb: space-between;
+  --align-items-center: center;
+}
+/* Custom properties */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  all: unset;
+  display: inline-block;
+  text-decoration: none;
+  color: indianred;
+  font-weight: 600;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: indianred;
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  min-width: 100%;
+  background-color: lightgrey;
+}
+
+#app {
+  width: 80%;
+  border: 2px solid red;
+  margin: 4rem auto;
+  padding: 2rem;
+  gap: 20px;
+  text-align: center;
+  flex-direction: var(--flex-direction-column);
+  justify-content: var(--justify-content-sb);
+}
+
+.flex-container {
+  display: var(--display-flex);
+  align-items: var(--align-items-center);
+  justify-content: var(--justify-content-center);
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+main {
+  border: 1px solid black;
+  width: 90%;
+}
+
+/* Register, Login forms */
+.register,
+.login {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.register h2,
+.login h2 {
+  text-align: start;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: var(--display-flex);
+  flex-direction: var(--flex-direction-column);
+}
+
+label {
+  text-align: start;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='file'] {
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.register button,
+.login button {
+  margin-top: 2rem;
+  padding: 0.75rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register button:hover,
+.login button:hover {
+  background-color: #357abd;
+}
+
+.footer {
+  border: 1px solid blue;
+  width: 90%;
+  height: 100px;
+}

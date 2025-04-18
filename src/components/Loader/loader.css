@@ -1,0 +1,62 @@
+#dialog-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(35%, 1000px);
+  padding: 3rem 1.5rem;
+  border-radius: 10px;
+  opacity: 1;
+  flex-direction: var(--flex-direction-column);
+}
+
+#dialog-loader::backdrop {
+  background-color: #00000074;
+  transform: translate(100%);
+  transition: 0.5s transform;
+}
+
+#dialog-loader[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#dialog-loader[open]::backdrop {
+  transform: translate(0);
+}
+
+@starting-style {
+  #dialog-loader[open] {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  #dialog-loader[open]::backdrop {
+    transform: translate(100%);
+  }
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border-left-color: #09f;
+
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text-waiting {
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 2rem;
+}
