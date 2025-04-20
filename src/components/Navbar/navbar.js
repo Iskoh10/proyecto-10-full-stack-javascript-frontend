@@ -1,20 +1,21 @@
 import Events from '../../pages/Events/Events';
 import Login from '../../pages/Login/Login';
+import Profile from '../../pages/Profile/profile';
 import profileTemplate from '../../pages/Profile/profile';
 import Register from '../../pages/Register/Register';
 import createMessage from '../Message/message';
 import './navbar.css';
 
 const createNavbar = () => {
-  const header = document.querySelector('header');
-  if (!header) return console.error('No se encontró el header');
+  const divNav = document.querySelector('.div-nav');
+  if (!divNav) return console.error('No se encontró el divNav');
 
   let navBar = document.querySelector('.navBar');
 
   if (!navBar) {
     navBar = document.createElement('nav');
     navBar.classList.add('navBar', 'flex-container');
-    header.appendChild(navBar);
+    divNav.appendChild(navBar);
   }
 
   let ul = navBar.querySelector('ul');
@@ -62,7 +63,7 @@ const createNavbar = () => {
   });
 
   navBar.querySelector('#profileLink')?.addEventListener('click', () => {
-    profileTemplate();
+    Profile();
   });
 
   document.querySelector('#logoutLink')?.addEventListener('click', () => {

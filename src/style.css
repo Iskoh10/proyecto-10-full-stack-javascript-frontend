@@ -3,6 +3,7 @@
   --flex-direction-column: column;
   --flex-wrap-wrap: wrap;
   --justify-content-center: center;
+  --justify-content-start: start;
   --justify-content-sb: space-between;
   --align-items-center: center;
 }
@@ -48,11 +49,6 @@ li {
   list-style-type: none;
 }
 
-body {
-  min-width: 100%;
-  background-color: lightgrey;
-}
-
 #app {
   width: 80%;
   border: 2px solid red;
@@ -71,7 +67,7 @@ body {
 }
 
 .main-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 

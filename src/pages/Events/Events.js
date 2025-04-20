@@ -3,7 +3,6 @@ import checkUserEvent from '../../handlers/attendHandler';
 import attachEventListeners from '../../handlers/eventHandlers';
 import handleStorageOnWindowClose from '../../handlers/storageHandler';
 import resetPassword from '../../components/ResetPassword/resetPassword';
-import profileTemplate from '../Profile/profile';
 
 const eventTemplate = () => {
   handleStorageOnWindowClose();
@@ -115,6 +114,14 @@ const getEvents = async () => {
       attachEventListeners();
     }
   }
+
+  const liEventsIn = document.querySelectorAll('.li-event-in');
+  console.log(liEventsIn);
+  for (const li of liEventsIn) {
+    li.addEventListener('click', (e) => {
+      console.log(e.target.innerText);
+    });
+  }
 };
 
 const Events = () => {
@@ -133,7 +140,6 @@ const Events = () => {
 
 export default Events;
 
-//! Quitar la imagen, solo aparezca cuando hacemos click en el evento para ver mas detalles junto a los participantes y la descripcion. Quitarse de un evento debe ser en el perfil del usuario que será un modal. Implementar que el fondo del dia sea verde si la fecha es hoy o futuro y si es un evento pasado que el fondo sea rojizo y se pierda el hover del evento.
+//! Quitar la imagen, solo aparezca cuando hacemos click en el evento para ver mas detalles junto a los participantes y la descripcion. Quitarse de un evento debe ser en el perfil del usuario que será una pagina. Implementar que el fondo del dia sea verde si la fecha es hoy o futuro y si es un evento pasado que el fondo sea rojizo y se pierda el hover del evento.
 
-//! Implementar la recuperacion de contraseña en el login form
 //! Implementar la modificacion de la contraseña en el modal del perfil: ultima contraseña, contraseña y repetir contraseña
