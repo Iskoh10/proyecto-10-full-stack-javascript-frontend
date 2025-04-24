@@ -17,7 +17,9 @@ button#recover-password:hover {
 }
 
 .recover-modal,
-#reset-modal {
+#reset-modal,
+#changeImg-modal,
+#create-event-modal {
   inset: 0;
   margin: auto;
   width: min(35%, 1000px);
@@ -31,20 +33,26 @@ button#recover-password:hover {
 }
 
 .recover-modal::backdrop,
-#reset-modal::backdrop {
+#reset-modal::backdrop,
+#changeImg-modal::backdrop,
+#create-event-modal::backdrop {
   background-color: #00000074;
   transform: translate(100%);
   transition: 0.5s transform;
 }
 
 .recover-modal[open],
-#reset-modal[open] {
+#reset-modal[open],
+#changeImg-modal[open],
+#create-event-modal[open] {
   opacity: 1;
   transform: translateY(0);
 }
 
 .recover-modal[open]::backdrop,
-#reset-modal[open]::backdrop {
+#reset-modal[open]::backdrop,
+#changeImg-modal[open]::backdrop,
+#create-event-modal[open]::backdrop {
   transform: translate(0);
 }
 
@@ -67,7 +75,9 @@ button#recover-password:hover {
 }
 
 button#close-dialog,
-button#close-reset {
+button#close-reset,
+#close-changeImg,
+#close-createEvent {
   all: unset;
   border: 2px solid black;
   border-radius: 1rem;
@@ -78,7 +88,10 @@ button#close-reset {
   transition: transform 0.5s ease;
 }
 
-button#close-dialog:hover {
+button#close-dialog:hover,
+button#close-reset:hover,
+#close-changeImg:hover,
+#close-createEvent:hover {
   background-color: white;
   transform: scale(1.05);
 }
@@ -90,10 +103,4 @@ button#close-dialog:hover {
 
 button#close-reset {
   padding: 0.5rem 0;
-  transition: transform 0.5s ease;
-}
-
-button#close-reset:hover {
-  background-color: white;
-  transform: scale(1.05);
 }
