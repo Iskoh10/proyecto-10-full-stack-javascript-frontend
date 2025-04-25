@@ -33,10 +33,10 @@ const loginSubmit = async (emailParam, passwordParam) => {
     localStorage.setItem(
       'user',
       JSON.stringify({
-        id: dataRes.user._id,
+        id: user._id,
         token: dataRes.token,
-        name: dataRes.user.nameUser,
-        img: dataRes.user.img
+        name: user.nameUser,
+        img: user.img
       })
     );
 

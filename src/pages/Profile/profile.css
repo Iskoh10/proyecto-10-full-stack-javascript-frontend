@@ -21,7 +21,7 @@
 
 .change-img,
 #makeChangeImg,
-#createEventBtn {
+#eventBtnGo {
   background-color: #007bff;
   border: 2px solid #007bff;
   color: #fff;
@@ -36,14 +36,14 @@
 }
 
 .change-img:hover,
-#createEventBtn:hover {
+#eventBtnGo:hover {
   background-color: #0056b3;
   border-color: #0056b3;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .change-img:active,
-#createEventBtn:active {
+#eventBtnGo:active {
   background-color: #003d80;
   box-shadow: none;
 }
@@ -88,7 +88,7 @@
   transform: scale(1.05);
 }
 
-#createEvent-form label {
+#event-form label {
   margin-top: 8%;
   margin-bottom: 2%;
 }
@@ -102,4 +102,36 @@
   padding: 2%;
   resize: none;
   overflow: hidden;
+}
+
+textarea {
+  overflow: hidden;
+  height: auto;
+  min-height: 2em;
+}
+
+#attending-events,
+.li-event-user {
+  flex-direction: var(--flex-direction-column);
+}
+
+.li-event-user {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #a0c1c9;
+  color: #333;
+}
+
+.info-event-resume {
+  margin-top: 1rem;
+  gap: 1rem;
+  align-items: end;
+}
+
+.info-event-resume p:nth-of-type(2) {
+  font-size: 1.5rem;
+  font-weight: 500;
 }

@@ -17,7 +17,8 @@
   align-items: stretch;
 }
 
-li.li-event {
+li.li-event,
+.li-event-user {
   position: relative;
   border: 1px solid red;
   min-width: 200px;

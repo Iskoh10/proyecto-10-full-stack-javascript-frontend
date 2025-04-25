@@ -5,7 +5,7 @@ import Events from '../pages/Events/Events';
 let listenerExist = false;
 
 const CreateEvent = async () => {
-  const createEventBtn = document.querySelector('#createEventBtn');
+  const createEventBtn = document.querySelector('#eventBtnGo');
   if (listenerExist) return;
 
   listenerExist = true;
