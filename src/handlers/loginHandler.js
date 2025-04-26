@@ -24,11 +24,13 @@ const loginSubmit = async (emailParam, passwordParam) => {
 
     if (!data.ok) {
       console.error(dataRes.message || 'Error en el login');
-      alert(dataRes.message || 'Error en el login');
+      createMessage('Error en el login');
+      createSpinner('close');
       return;
     }
 
     const user = dataRes.user;
+    console.log(dataRes.token);
 
     localStorage.setItem(
       'user',
@@ -39,7 +41,7 @@ const loginSubmit = async (emailParam, passwordParam) => {
         img: user.img
       })
     );
-
+    localStorage.setItem('lastVisit', Date.now().toString());
     createNavbar();
     Events();
     createMessage(`Logueado con éxito`);

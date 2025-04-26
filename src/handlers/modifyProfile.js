@@ -12,7 +12,7 @@ const createModProfileModal = () => `
 <label for="password">Contraseña</label>
 <input type="password" id="mod-password" placeholder="Contraseña" autocomplete="new-password"/>
 
-<label for="password"Repetir Contraseña</label>
+<label for="password" class="label-re-pass">Repetir Contraseña</label>
 <input type="password" id="mod-repeat-password" placeholder="Repetir contraseña" autocomplete="new-password"/>
 
 </form>

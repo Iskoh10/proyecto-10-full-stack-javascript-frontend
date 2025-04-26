@@ -21,7 +21,10 @@
 
 .change-img,
 #makeChangeImg,
-#eventBtnGo {
+#eventBtnGo,
+.mod-profile-btn,
+.delete-account-btn,
+.delete-no-btn {
   background-color: #007bff;
   border: 2px solid #007bff;
   color: #fff;
@@ -36,14 +39,25 @@
 }
 
 .change-img:hover,
-#eventBtnGo:hover {
+#eventBtnGo:hover,
+.mod-profile-btn:hover,
+.delete-account-btn:hover,
+.delete-no-btn:hover {
   background-color: #0056b3;
   border-color: #0056b3;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+.mod-profile-btn {
+  margin-top: 1rem;
+  width: 90%;
+}
+
 .change-img:active,
-#eventBtnGo:active {
+#eventBtnGo:active,
+.mod-profile-btn:active,
+.delete-account-btn:active,
+.delete-no-btn:active {
   background-color: #003d80;
   box-shadow: none;
 }

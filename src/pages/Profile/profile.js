@@ -1,9 +1,12 @@
 import createEventModal from '../../components/EventsModal/eventsModal';
+import createSpinner from '../../components/Loader/loader';
 import attendingEvents from '../../handlers/attendingEvents';
 import changeImg from '../../handlers/changeImg';
+import createDeleteModal from '../../handlers/deleteModal';
 import getEventsUser from '../../handlers/getEventsUser';
 import createModProfileModal from '../../handlers/modifyProfile';
 import modifyProfileModal from '../../handlers/modifyProfile';
+import modProfilePost from '../../handlers/modProfilePost';
 import CreateEvent from '../../handlers/postEvent';
 import './profile.css';
 
@@ -36,8 +39,6 @@ const profileTemplate = () => `
 <li class="create-event">Crear Evento</li>
 <li class="attending-events">Eventos reservados</li>
 <li class="modify-profile">Modificar Perfil</li>
-<li class="send-message">Mandar Mensaje</li>
-<li class="messages">Mensajes Recibidos</li>
 <li class="delete-account">Eliminar Cuenta</li>
 </ul>
 </div>
@@ -71,6 +72,7 @@ const getUserById = async () => {
 
 const Profile = () => {
   document.querySelector('main').innerHTML = profileTemplate();
+  createSpinner('Cargando tu perfil');
   getUserById();
 
   const modal = document.querySelector('.changeImg-modal');
@@ -118,11 +120,49 @@ const Profile = () => {
   });
 
   divInfoUser.insertAdjacentHTML('beforeend', createModProfileModal());
-  const modProfileModal = document.querySelector('#events-modal');
-  const closeModProfileBtn = document.querySelector('.close-events-btn');
+  const modProfileModal = document.querySelector('#mod-profile-modal');
+  const modProfileBtn = document.querySelector('.mod-profile-btn');
+  const closeModProfileBtn = document.querySelector('.close-mod-profile-btn');
+
+  modProfileBtn.addEventListener('click', () => {
+    modProfilePost();
+  });
 
   closeModProfileBtn.addEventListener('click', () => {
+    const modForm = document.querySelector('#mod-profile');
+    modForm.reset();
     modProfileModal.close();
+  });
+
+  divInfoUser.insertAdjacentHTML('beforeend', createDeleteModal());
+  const deleteModal = document.querySelector('#delete-modal');
+  const deleteAccountBtn = document.querySelector('.delete-account-btn');
+  const closeDeleteBtn = document.querySelector('.close-delete-btn');
+  const confirmDeleteModal = document.querySelector('#confirm-delete-modal');
+  const deleteYesBtn = document.querySelector('.delete-yes-btn');
+  const deleteNoBtn = document.querySelector('.delete-no-btn');
+
+  deleteAccountBtn.addEventListener('click', () => {
+    // deleteAccount();
+    confirmDeleteModal.showModal();
+    console.log(
+      'Crear un nuevo modal donde se le advierta, ¿Estás a punto de borrar tu cuenta estás seguro? si no'
+    );
+  });
+
+  deleteYesBtn.addEventListener('click', () => {
+    console.log('Cuenta Borrada');
+
+    //! Crear el handler para eliminar la cuenta
+  });
+
+  deleteNoBtn.addEventListener('click', () => {
+    confirmDeleteModal.close();
+    deleteModal.close();
+  });
+
+  closeDeleteBtn.addEventListener('click', () => {
+    deleteModal.close();
   });
 
   const liItemsTask = document.querySelectorAll('.ul-tasks li');
@@ -143,21 +183,16 @@ const Profile = () => {
           const attendingEventModal = document.querySelector('#events-modal');
           getEventsUser();
           attendingEventModal.showModal();
-
           break;
+
         case 'modify-profile':
           const modProfileModal = document.querySelector('#mod-profile-modal');
-          console.log(modProfileModal);
+          modProfileModal.showModal();
+          break;
 
-          break;
-        case 'send-message':
-          sendMessage();
-          break;
-        case 'messages':
-          messages();
-          break;
         case 'delete-account':
-          deleteAccount();
+          const deleteModal = document.querySelector('#delete-modal');
+          deleteModal.showModal();
           break;
 
         default:
@@ -165,6 +200,7 @@ const Profile = () => {
       }
     });
   });
+  createSpinner('close');
 };
 
 export default Profile;
@@ -176,3 +212,5 @@ export default Profile;
 //! Unificar el añadir el dialog y el addeventlistener al boton cancelar
 
 //! Quitar lo del user localStorage
+
+//! Lo de enviar mensajes y mensajes recibidos lo voy a dejar para más adelante, solo lo tendría el admin, y tendria todos los usuarios recogidos en un select, el modelo de usuario tendria una propiedad objeto llamada mensajes, y tendria que recoger el emisor, un titulo y el cuerpo del mensaje.

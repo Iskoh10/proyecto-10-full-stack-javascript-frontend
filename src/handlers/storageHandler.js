@@ -1,5 +1,7 @@
+import Events from '../pages/Events/Events';
+
 const handleStorageOnWindowClose = () => {
-  const maxIdleTime = 20 * 60 * 1000;
+  const maxIdleTime = 360 * 60 * 1000;
 
   const checkInactivityAndClear = () => {
     const lastVisit = localStorage.getItem('lastVisit');
@@ -18,8 +20,12 @@ const handleStorageOnWindowClose = () => {
 
   checkInactivityAndClear();
 
-  window.addEventListener('unload', () => {
-    localStorage.setItem('lastVisit', Date.now());
+  window.addEventListener('load', () => {
+    const user = localStorage.getItem('user');
+
+    if (!user) {
+      Events();
+    }
   });
 };
 
