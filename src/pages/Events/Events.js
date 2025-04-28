@@ -1,11 +1,9 @@
 import './events.css';
-import checkUserEvent from '../../handlers/attendHandler';
 import attachEventListeners from '../../handlers/eventHandlers';
-import handleStorageOnWindowClose from '../../handlers/storageHandler';
 import resetPassword from '../../components/ResetPassword/resetPassword';
+import createSpinner from '../../components/Loader/loader';
 
 const eventTemplate = () => {
-  handleStorageOnWindowClose();
   const user = JSON.parse(localStorage.getItem('user'));
 
   return `
@@ -20,41 +18,10 @@ ${
 `;
 };
 
-export const attendToEvent = async (eventId) => {
-  try {
-    const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
-
-    console.log(userId);
-
-    const response = await fetch(
-      `http://localhost:3000/api/v1/events/${eventId}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          participants: userId
-        })
-      }
-    );
-
-    console.log(response);
-
-    if (response.ok) {
-      console.log('Asistente añadido al evento');
-    } else {
-      console.error('Error al añadir asistente al evento');
-    }
-  } catch (error) {
-    console.log('Error inesperado', error);
-  }
-};
-
 const getEvents = async () => {
   const ul = document.querySelector('.navBar > ul');
 
+  createSpinner('Cargando Eventos');
   const eventsData = await fetch('http://localhost:3000/api/v1/events');
   const events = await eventsData.json();
   const eventsContainer = document.querySelector('#events-container');
@@ -104,15 +71,27 @@ const getEvents = async () => {
       <p class="location">${event.location}</p>
       </div>
       </div>
-      <button class="attend" data-event-id="${event._id}">Asistir</button>
-          `;
-      eventsContainer.appendChild(liEvent);
+      `;
 
       const user = JSON.parse(localStorage.getItem('user'));
       const userId = user.id;
-      checkUserEvent(event.participants, userId, event._id);
-      attachEventListeners();
+      const alreadyParticipating = event.participants.some(
+        (p) => p._id === userId
+      );
+
+      const btnAttend = document.createElement('button');
+      btnAttend.classList.add('attend');
+      btnAttend.dataset.eventId = event._id;
+      btnAttend.dataset.attending = alreadyParticipating ? 'true' : 'false';
+      btnAttend.innerHTML = alreadyParticipating
+        ? '❤️‍🔥 Dejar de asistir'
+        : 'Asistir';
+
+      liEvent.appendChild(btnAttend);
+      eventsContainer.appendChild(liEvent);
     }
+    attachEventListeners();
+    createSpinner('close');
   }
 
   const liEventsIn = document.querySelectorAll('.li-event-in');

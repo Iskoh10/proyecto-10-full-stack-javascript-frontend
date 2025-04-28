@@ -41,7 +41,7 @@ const loginSubmit = async (emailParam, passwordParam) => {
         img: user.img
       })
     );
-    localStorage.setItem('lastVisit', Date.now().toString());
+
     createNavbar();
     Events();
     createMessage(`Logueado con éxito`);

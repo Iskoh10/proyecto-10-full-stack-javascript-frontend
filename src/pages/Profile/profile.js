@@ -2,6 +2,7 @@ import createEventModal from '../../components/EventsModal/eventsModal';
 import createSpinner from '../../components/Loader/loader';
 import attendingEvents from '../../handlers/attendingEvents';
 import changeImg from '../../handlers/changeImg';
+import deleteAccount from '../../handlers/deleteAccount';
 import createDeleteModal from '../../handlers/deleteModal';
 import getEventsUser from '../../handlers/getEventsUser';
 import createModProfileModal from '../../handlers/modifyProfile';
@@ -151,9 +152,7 @@ const Profile = () => {
   });
 
   deleteYesBtn.addEventListener('click', () => {
-    console.log('Cuenta Borrada');
-
-    //! Crear el handler para eliminar la cuenta
+    deleteAccount();
   });
 
   deleteNoBtn.addEventListener('click', () => {
@@ -181,8 +180,8 @@ const Profile = () => {
           break;
         case 'attending-events':
           const attendingEventModal = document.querySelector('#events-modal');
-          getEventsUser();
           attendingEventModal.showModal();
+          getEventsUser();
           break;
 
         case 'modify-profile':

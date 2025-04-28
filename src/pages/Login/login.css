@@ -109,7 +109,8 @@ button#close-reset,
 .close-events-btn,
 .close-mod-profile-btn,
 .close-delete-btn,
-.delete-yes-btn {
+.delete-yes-btn,
+.leave-attend {
   all: unset;
   border: 2px solid black;
   border-radius: 1rem;
@@ -120,13 +121,19 @@ button#close-reset,
   transition: transform 0.5s ease;
 }
 
+.leave-attend {
+  width: 70%;
+  background-color: white;
+}
+
 button#close-dialog:hover,
 button#close-reset:hover,
 #close-changeImg:hover,
 #close-event-modal:hover,
 .close-mod-profile-btn:hover,
 .close-delete-btn:hover,
-.delete-yes-btn:hover {
+.delete-yes-btn:hover,
+.leave-attend:hover {
   background-color: white;
   transform: scale(1.05);
 }

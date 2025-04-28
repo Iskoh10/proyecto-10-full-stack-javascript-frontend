@@ -1,3 +1,4 @@
+import createSpinner from '../components/Loader/loader';
 import loginSubmit from './loginHandler';
 
 const registerSubmit = async () => {
@@ -14,6 +15,7 @@ const registerSubmit = async () => {
     formData.append('img', userimg);
   }
 
+  createSpinner('Creando tu Cuenta');
   try {
     const res = await fetch('http://localhost:3000/api/v1/users/register', {
       method: 'POST',
@@ -22,11 +24,10 @@ const registerSubmit = async () => {
 
     if (res.ok) {
       loginSubmit(email, password);
-      createSpinner('Registro completado, logueando');
+      return;
     } else {
       const errorData = await res.json();
       console.error('Error al registrar:', errorData);
-      alert('Hubo algun error al registrarse. Intentalo de nuevo.');
     }
   } catch (error) {
     console.error('Error en la solicitud:', error);
