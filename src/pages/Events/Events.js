@@ -2,6 +2,7 @@ import './events.css';
 import attachEventListeners from '../../handlers/eventHandlers';
 import resetPassword from '../../components/ResetPassword/resetPassword';
 import createSpinner from '../../components/Loader/loader';
+import eventCard from '../../components/EventCard/eventCard';
 
 const eventTemplate = () => {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -38,13 +39,9 @@ const getEvents = async () => {
     const liEvent = document.createElement('li');
     liEvent.classList.add('li-event', 'flex-container');
 
-    if (!localStorage.getItem('user')) {
-      // <img class="event-img" src=${event.img} alt=${event.title}/>
-      // <p class="description">${event.description}</p>
-      // <p class="participants">Asistentes: ${event.participants
-      //   .map((p) => p.nameUser)
-      //   .join(', ')}</p>
+    liEvent.eventData = event;
 
+    if (!localStorage.getItem('user')) {
       liEvent.innerHTML = `
       <div class="day flex-container">
       <p>${formattedDate.split('/')[0]}</p>
@@ -93,12 +90,12 @@ const getEvents = async () => {
     attachEventListeners();
     createSpinner('close');
   }
-
   const liEventsIn = document.querySelectorAll('.li-event-in');
   console.log(liEventsIn);
   for (const li of liEventsIn) {
     li.addEventListener('click', (e) => {
-      console.log(e.target.innerText);
+      const li = e.currentTarget;
+      eventCard(li.eventData);
     });
   }
 };

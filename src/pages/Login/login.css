@@ -29,7 +29,8 @@ button#recover-password:hover {
 #events-modal,
 #mod-profile-modal,
 #delete-modal,
-#confirm-delete-modal {
+#confirm-delete-modal,
+#event-details {
   inset: 0;
   margin: auto;
   width: min(35%, 1000px);
@@ -50,7 +51,8 @@ button#recover-password:hover {
 #events-modal::backdrop,
 #mod-profile-modal::backdrop,
 #delete-modal::backdrop,
-#confirm-delete-modal::backdrop {
+#confirm-delete-modal::backdrop,
+#event-details::backdrop {
   background-color: #00000074;
   transform: translate(100%);
   transition: 0.5s transform;
@@ -63,7 +65,8 @@ button#recover-password:hover {
 #events-modal[open],
 #mod-profile-modal[open],
 #delete-modal[open],
-#confirm-delete-modal[open] {
+#confirm-delete-modal[open],
+#event-details[open] {
   display: block;
   opacity: 1;
   transform: translateY(0);
@@ -76,7 +79,8 @@ button#recover-password:hover {
 #events-modal[open]::backdrop,
 #mod-profile-modal[open]::backdrop,
 #delete-modal[open]::backdrop,
-#confirm-delete-modal[open]::backdrop {
+#confirm-delete-modal[open]::backdrop,
+#event-details[open]::backdrop {
   transform: translate(0);
 }
 
@@ -110,7 +114,8 @@ button#close-reset,
 .close-mod-profile-btn,
 .close-delete-btn,
 .delete-yes-btn,
-.leave-attend {
+.leave-attend,
+.close-event-btn {
   all: unset;
   border: 2px solid black;
   border-radius: 1rem;
@@ -133,7 +138,8 @@ button#close-reset:hover,
 .close-mod-profile-btn:hover,
 .close-delete-btn:hover,
 .delete-yes-btn:hover,
-.leave-attend:hover {
+.leave-attend:hover,
+.close-event-btn:hover {
   background-color: white;
   transform: scale(1.05);
 }

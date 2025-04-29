@@ -6,6 +6,22 @@
   --justify-content-start: start;
   --justify-content-sb: space-between;
   --align-items-center: center;
+
+  --primary-bg: #139c9c;
+  --accent-top: #064b4a;
+  --accent-bottom: #ad8632;
+  --text-color: #000000;
+  --brand-light: #139c9c;
+  --highlight-light: #064b4a;
+  --shadow-light: #ad8632;
+
+  --primary-bg: #eb5959;
+  --accent-top: #f29ca1;
+  --accent-bottom: #748fc7;
+  --text-color: #ffffff;
+  --brand-dark: #eb5959;
+  --highlight-dark: #f29ca1;
+  --shadow-dark: #748fc7;
 }
 /* Custom properties */
 
@@ -69,6 +85,7 @@ li {
 .main-title {
   font-size: 2.5rem;
   font-weight: 700;
+  color: black;
 }
 
 main {

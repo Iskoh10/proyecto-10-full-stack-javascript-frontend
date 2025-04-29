@@ -2,7 +2,7 @@ import attendToEvent from './attendToEvent';
 import leaveEvent from './leaveEvent';
 
 const handleAttendClick = async (e) => {
-  e.preventDefault();
+  e.stopPropagation();
   const btn = e.target;
   const eventId = btn.dataset.eventId;
   const isAttending = btn.dataset.attending === 'true';
@@ -16,11 +16,9 @@ const handleAttendClick = async (e) => {
     btn.dataset.attending = 'true';
     btn.innerHTML = '❤️‍🔥 Dejar de asistir';
   }
-
-  // Events();
 };
 
-const attachEventListeners = () => {
+const attachEventListeners = (e) => {
   document.querySelectorAll('.attend').forEach((btn) => {
     btn.addEventListener('click', handleAttendClick);
   });

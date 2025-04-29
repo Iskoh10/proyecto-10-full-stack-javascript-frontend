@@ -13,7 +13,8 @@ const divLogo = document.createElement('div');
 divLogo.classList.add('div-logo', 'flex-container');
 
 const logoImg = document.createElement('img');
-logoImg.src = 'src/assets/lightLogo.png';
+logoImg.className = 'img-logo';
+logoImg.src = 'src/assets/darkLogo.png';
 
 logoImg.addEventListener('click', () => Events());
 
@@ -34,8 +35,10 @@ divLogo.appendChild(logoImg);
 header.appendChild(divLogo);
 divNav.appendChild(title);
 header.appendChild(divNav);
-createToggle(app);
+
 app.appendChild(header);
+
+createToggle(document.body);
 
 app.appendChild(main);
 app.appendChild(footer);

@@ -1,0 +1,29 @@
+.img-container {
+  min-width: 30vw;
+  min-height: 30vh;
+}
+
+.modal-content > h2 {
+  margin-bottom: 1rem;
+}
+
+.event-img {
+  height: 100%;
+}
+
+p.description {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  margin: 0.5em;
+  padding: 1em;
+  border-left: 4px solid #ccc;
+  border-radius: 4px;
+  color: #555;
+  width: 100%;
+}
+
+p.participants {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}

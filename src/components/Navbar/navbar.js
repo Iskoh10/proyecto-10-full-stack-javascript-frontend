@@ -1,7 +1,6 @@
 import Events from '../../pages/Events/Events';
 import Login from '../../pages/Login/Login';
 import Profile from '../../pages/Profile/profile';
-import profileTemplate from '../../pages/Profile/profile';
 import Register from '../../pages/Register/Register';
 import createMessage from '../Message/message';
 import './navbar.css';
