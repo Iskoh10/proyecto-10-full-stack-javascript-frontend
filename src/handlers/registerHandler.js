@@ -1,4 +1,5 @@
 import createSpinner from '../components/Loader/loader';
+import createMessage from '../components/Message/message';
 import loginSubmit from './loginHandler';
 
 const registerSubmit = async () => {
@@ -6,6 +7,12 @@ const registerSubmit = async () => {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   const userimg = document.querySelector('#userimg').files[0];
+
+  const fields = [username, email, password];
+  if (fields.some((field) => !field.trim())) {
+    createMessage('Faltan datos para registrarte');
+    return;
+  }
 
   const formData = new FormData();
   formData.append('nameUser', username);

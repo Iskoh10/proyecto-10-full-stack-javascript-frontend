@@ -102,11 +102,15 @@ button#recover-password:hover {
   justify-content: center;
 }
 
+#registerbtn,
+button.recover-btn {
+  margin-top: 1.5rem;
+}
+
 #confirm-delete-modal > h2 {
   color: red;
 }
 
-button#close-dialog,
 button#close-reset,
 #close-changeImg,
 #close-event-modal,
@@ -131,7 +135,6 @@ button#close-reset,
   background-color: white;
 }
 
-button#close-dialog:hover,
 button#close-reset:hover,
 #close-changeImg:hover,
 #close-event-modal:hover,
@@ -145,8 +148,17 @@ button#close-reset:hover,
 }
 
 #new-password {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.update-pass-btn {
+  margin-top: 2rem;
+}
+
+.close-pass-btn {
+  width: 25%;
+  align-items: center;
 }
 
 button#close-reset {

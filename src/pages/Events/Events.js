@@ -3,6 +3,8 @@ import attachEventListeners from '../../handlers/eventHandlers';
 import resetPassword from '../../components/ResetPassword/resetPassword';
 import createSpinner from '../../components/Loader/loader';
 import eventCard from '../../components/EventCard/eventCard';
+import createButton from '../../components/CreateButton/createButton';
+import createModalReset from '../Reset/reset';
 
 const eventTemplate = () => {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -64,7 +66,7 @@ const getEvents = async () => {
       <div class="data flex-container">
       <h3 class="event-title">${event.title}</h3>
       <div class="event-info flex-container">
-       <p class="date">${formattedDate}</p>
+      <p class="date">${formattedDate}</p>
       <p class="location">${event.location}</p>
       </div>
       </div>
@@ -76,15 +78,18 @@ const getEvents = async () => {
         (p) => p._id === userId
       );
 
-      const btnAttend = document.createElement('button');
-      btnAttend.classList.add('attend');
+      const btnAttend = createButton({
+        parentNode: liEvent,
+        text: 'ASISTIR',
+        classNameType: 'primary',
+        className: 'attend'
+      });
       btnAttend.dataset.eventId = event._id;
       btnAttend.dataset.attending = alreadyParticipating ? 'true' : 'false';
       btnAttend.innerHTML = alreadyParticipating
         ? '❤️‍🔥 Dejar de asistir'
         : 'Asistir';
 
-      liEvent.appendChild(btnAttend);
       eventsContainer.appendChild(liEvent);
     }
     attachEventListeners();
@@ -102,16 +107,21 @@ const getEvents = async () => {
 
 const Events = () => {
   document.querySelector('main').innerHTML = eventTemplate();
-  getEvents();
 
   const pathParts = window.location.pathname.split('/');
   const token = pathParts[3];
 
-  if (token) {
-    const resetModal = document.querySelector('#reset-modal');
-    resetModal?.showModal();
-    resetPassword(token);
-  }
+  setTimeout(() => {
+    if (token) {
+      createModalReset();
+      const resetModal = document.querySelector('#reset-modal');
+      if (resetModal) {
+        resetModal.showModal();
+        resetPassword(token);
+      }
+    }
+  }, 0);
+  getEvents();
 };
 
 export default Events;

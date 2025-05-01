@@ -18,7 +18,7 @@ const handleAttendClick = async (e) => {
   }
 };
 
-const attachEventListeners = (e) => {
+const attachEventListeners = () => {
   document.querySelectorAll('.attend').forEach((btn) => {
     btn.addEventListener('click', handleAttendClick);
   });

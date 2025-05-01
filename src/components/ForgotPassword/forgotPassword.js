@@ -1,11 +1,23 @@
+import Login from '../../pages/Login/Login';
+import createSpinner from '../Loader/loader';
+import createMessage from '../Message/message';
+
 const sendEmail = () => {
   const modal = document.querySelector('.recover-modal');
-  const form = modal?.querySelector('form');
+  const form = modal?.querySelector('.recover-modal > form');
   const emailInput = document.querySelector('#emailrec');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = emailInput.value;
+
+    if (!email.trim()) {
+      createMessage('Introduce un correo válido');
+      return;
+    }
+
+    modal.close();
+    createSpinner('Te estamos enviando un correo...');
 
     try {
       const response = await fetch(
@@ -22,12 +34,12 @@ const sendEmail = () => {
       const result = await response.json();
 
       if (response.ok) {
-        createSpinner('Te estamos enviando un correo');
-        alert('📧 ¡Correo de recuperación enviado!');
-        modal.close();
+        createSpinner('close');
+        Login();
+        createMessage('Correo de recuperación enviado!');
       } else {
+        createSpinner('close');
         createSpinner('Algo va mal');
-        alert(result.message || '❌ Error al enviar el correo');
       }
     } catch (error) {
       console.error(error);

@@ -1,7 +1,9 @@
-import Login from '../../pages/Login/Login';
+import createModalReset from '../../pages/Reset/reset';
+import createSpinner from '../Loader/loader';
+import createMessage from '../Message/message';
 
 const resetPassword = (token) => {
-  Login();
+  createModalReset();
   const resetModal = document.querySelector('#reset-modal');
   const resetForm = document.querySelector('#reset-form');
   const closeResetBtn = document.querySelector('#close-reset');
@@ -11,19 +13,22 @@ const resetPassword = (token) => {
   }
 
   if (!token) {
-    alert('Token no encontrado en la URL');
+    createMessage('Token no encontrado en la URL');
     return;
   }
 
-  resetForm?.addEventListener('submit', async (e) => {
+  const existingHandler = resetForm.dataset.listenerAdded;
+  if (existingHandler) return;
+  resetForm.dataset.listenerAdded = 'true';
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newPassword = document.querySelector('#new-password');
     const reNewPassword = document.querySelector('#renew-password');
 
-    console.log(newPassword.value);
-    console.log(reNewPassword.value);
-
     if (newPassword.value === reNewPassword.value) {
+      createSpinner('Actualizando tu contraseña');
+
       try {
         const response = await fetch(
           `http://localhost:3000/api/auth/reset-password/${token}`,
@@ -39,24 +44,32 @@ const resetPassword = (token) => {
         const result = await response.json();
 
         if (response.ok) {
-          createSpinner('Estamos actualizando tu contraseña');
-          alert('Contraseña actualizada ✅');
+          createSpinner('close');
+          createMessage('Contraseña actualizada ✅');
           resetModal.close();
           window.history.replaceState({}, document.title, '/login');
           // window.location.href = '/login';
         } else {
-          createSpinner('Algo va mal');
-          alert(result.message || 'Error al actualizar la contraseña ❌');
+          createMessage(
+            result.message || 'Error al actualizar la contraseña ❌'
+          );
         }
       } catch (error) {
-        console.error(error);
-        alert('Error de conexión con el servidor ❌');
+        createSpinner('close');
+        createMessage('Error de conexión con el servidor ❌');
       }
     } else {
-      alert('Las contraseñas no coinciden');
+      createMessage('Las contraseñas no coinciden');
     }
+  };
+
+  resetForm.addEventListener('submit', handleSubmit);
+
+  closeResetBtn?.addEventListener('click', () => {
+    resetModal.close();
+    resetForm.removeEventListener('submit', handleSubmit);
+    resetForm.removeAttribute('data-listener-added');
   });
-  closeResetBtn?.addEventListener('click', () => resetModal.close());
 };
 
 export default resetPassword;

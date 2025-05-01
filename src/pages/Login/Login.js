@@ -2,6 +2,7 @@ import './login.css';
 import loginSubmit from '../../handlers/loginHandler';
 import validateForm from '../../utils/validateForm';
 import sendEmail from '../../components/ForgotPassword/forgotPassword';
+import createButton from '../../components/CreateButton/createButton';
 
 const loginTemplate = () => `
 <section class="login">
@@ -15,22 +16,17 @@ ${
   <label for="password">Contraseña</label>
   <input type="password" placeholder="Contraseña" id="password"  />
 
-  <button id="loginbtn">Login</button>
-  
-  <button id="recover-password" >¿Olvidaste tu contraseña?</button>
   </form>
   
   <dialog class="recover-modal" id="modal">
-  <div class="modalrec_container">
+ 
 
-  <form method="post">
+  <form method="post" class="flex-container">
   <h2>Recuperar contraseña</h2>
   <label for="emailrec">Introduce tu correo:</label>
   <input type="email" id="emailrec" name="emailrec" placeholder="email">
-  <button type="submit">Recuperar contraseña</button>
-  <button id="close-dialog" type="button">Cerrar</button>
   </form>
-  </div>
+
   </dialog>
 
   <dialog class="reset-modal" id="reset-modal">
@@ -48,8 +44,6 @@ ${
       placeholder="Repetir contraseña"
       required
     />
-    <button type="submit">Cambiar contraseña</button>
-    <button type="button" id="close-reset">Cancelar</button>
   </form>
 </dialog>
   `
@@ -59,6 +53,49 @@ ${
 
 const Login = (email, password) => {
   document.querySelector('main').innerHTML = loginTemplate();
+  const loginForm = document.querySelector('.login > form');
+  createButton({
+    parentNode: loginForm,
+    text: 'Login',
+    classNameType: 'primary',
+    id: 'loginbtn'
+  });
+  createButton({
+    parentNode: loginForm,
+    text: '¿Olvidaste tu contraseña?',
+    classNameType: 'secondary',
+    id: 'recover-password'
+  });
+
+  const recoverForm = document.querySelector('.recover-modal form');
+  createButton({
+    parentNode: recoverForm,
+    text: 'Recuperar contraseña',
+    classNameType: 'primary',
+    className: 'recover-btn'
+  });
+  createButton({
+    parentNode: recoverForm,
+    text: 'Cerrar',
+    classNameType: 'secondary',
+    id: 'close-dialog'
+  });
+
+  const resetForm = document.querySelector('#reset-form');
+  createButton({
+    parentNode: resetForm,
+    text: 'Cambiar contraseña',
+    classNameType: 'primary'
+  });
+  const recoverBtn = document.querySelector('.recover-btn');
+  recoverBtn.type = 'submit';
+
+  createButton({
+    parentNode: resetForm,
+    text: 'Cancelar',
+    classNameType: 'secondary',
+    id: 'close-reset'
+  });
 
   const openModal = document.querySelector('#recover-password');
   const modal = document.querySelector('.recover-modal');

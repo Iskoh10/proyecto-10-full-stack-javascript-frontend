@@ -1,3 +1,4 @@
+import createButton from '../../components/CreateButton/createButton';
 import registerSubmit from '../../handlers/registerHandler';
 import validateForm from '../../utils/validateForm';
 
@@ -17,14 +18,19 @@ const registerTemplate = () => `
     <label for="userimg">Foto de perfil</label>
     <input type="file" id="userimg" accept=".jpg,.jpeg,.png,.gif,.webp">
 
-    <button id="registerbtn" type="button">Crear cuenta</button>
     </form>
 </section>
 `;
 
 const Register = () => {
   document.querySelector('main').innerHTML = registerTemplate();
-
+  const formRegister = document.querySelector('.register > form');
+  createButton({
+    parentNode: formRegister,
+    text: 'Crear cuenta',
+    classNameType: 'primary',
+    id: 'registerbtn'
+  });
   validateForm();
 
   document.querySelector('#registerbtn').addEventListener('click', (e) => {
