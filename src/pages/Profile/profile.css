@@ -21,7 +21,6 @@
 
 .change-img,
 #makeChangeImg,
-#eventBtnGo,
 .mod-profile-btn,
 .delete-account-btn,
 .delete-no-btn {
@@ -39,7 +38,6 @@
 }
 
 .change-img:hover,
-#eventBtnGo:hover,
 .mod-profile-btn:hover,
 .delete-account-btn:hover,
 .delete-no-btn:hover {
@@ -54,7 +52,6 @@
 }
 
 .change-img:active,
-#eventBtnGo:active,
 .mod-profile-btn:active,
 .delete-account-btn:active,
 .delete-no-btn:active {
@@ -73,6 +70,15 @@
   height: 100%;
   align-items: center;
   justify-content: flex-start;
+}
+
+#eventBtnGo {
+  margin-top: 2rem;
+}
+
+#close-event-modal {
+  width: 25%;
+  align-self: center;
 }
 
 #tasks {

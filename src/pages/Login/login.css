@@ -113,7 +113,6 @@ button.recover-btn {
 
 button#close-reset,
 #close-changeImg,
-#close-event-modal,
 .close-events-btn,
 .close-mod-profile-btn,
 .close-delete-btn,
@@ -137,7 +136,6 @@ button#close-reset,
 
 button#close-reset:hover,
 #close-changeImg:hover,
-#close-event-modal:hover,
 .close-mod-profile-btn:hover,
 .close-delete-btn:hover,
 .delete-yes-btn:hover,

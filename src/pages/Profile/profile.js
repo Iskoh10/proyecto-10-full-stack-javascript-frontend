@@ -90,13 +90,10 @@ const Profile = () => {
     modal.close();
   });
 
+  createEventModal();
   const divInfoUser = document.querySelector('.info-user');
 
-  divInfoUser.insertAdjacentHTML(
-    'beforeend',
-    createEventModal('Crear Nuevo Evento')
-  );
-
+  //! Corregir codigo y vamos por eventos reservados
   const eventModal = document.querySelector('#event-modal');
   const closeBtnEvent = document.querySelector('#close-event-modal');
   const textArea = document.querySelector('#event-description');

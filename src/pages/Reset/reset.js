@@ -35,4 +35,4 @@ const createModalReset = () => {
 
 export default createModalReset;
 
-//! revisar y borrar codigo del boton cerrar del reset modal, y averiguar para que me envie a login() limpio el url
+//! revisar y borrar codigo del boton cerrar del reset modal,

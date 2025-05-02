@@ -47,8 +47,7 @@ const resetPassword = (token) => {
           createSpinner('close');
           createMessage('Contraseña actualizada ✅');
           resetModal.close();
-          window.history.replaceState({}, document.title, '/login');
-          // window.location.href = '/login';
+          window.location.href = '/login';
         } else {
           createMessage(
             result.message || 'Error al actualizar la contraseña ❌'

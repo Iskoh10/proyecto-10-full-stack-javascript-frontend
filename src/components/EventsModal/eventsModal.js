@@ -1,4 +1,6 @@
-const createEventModal = (title) => {
+import createButton from '../CreateButton/createButton';
+
+const newModalEvent = (title) => {
   return `
   <dialog  id="event-modal">
   <form id="event-form" method="dialog">
@@ -16,10 +18,31 @@ const createEventModal = (title) => {
       <input type="text" id="event-location" required />
       <label for="event-description">Descripción del Evento:</label>
       <textarea id="event-description"></textarea>
-    <button id="eventBtnGo" type="button">Crear Evento</button>
-    <button type="button" id="close-event-modal">Cancelar</button>
   </form>
 </dialog>`;
+};
+
+const createEventModal = () => {
+  const divInfoUser = document.querySelector('.info-user');
+
+  divInfoUser.insertAdjacentHTML(
+    'beforeend',
+    newModalEvent('Crear Nuevo Evento')
+  );
+
+  const eventForm = document.querySelector('#event-form');
+  createButton({
+    parentNode: eventForm,
+    text: 'Crear Evento',
+    classNameType: 'primary',
+    id: 'eventBtnGo'
+  });
+  createButton({
+    parentNode: eventForm,
+    text: 'Cancelar',
+    classNameType: 'secondary',
+    id: 'close-event-modal'
+  });
 };
 
 export default createEventModal;
