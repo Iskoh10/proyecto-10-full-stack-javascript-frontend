@@ -5,8 +5,8 @@ import changeImg from '../../handlers/changeImg';
 import deleteAccount from '../../handlers/deleteAccount';
 import createDeleteModal from '../../handlers/deleteModal';
 import getEventsUser from '../../handlers/getEventsUser';
+import modProfile from '../../handlers/modifyProfile';
 import createModProfileModal from '../../handlers/modifyProfile';
-import modifyProfileModal from '../../handlers/modifyProfile';
 import modProfilePost from '../../handlers/modProfilePost';
 import CreateEvent from '../../handlers/postEvent';
 import './profile.css';
@@ -44,7 +44,6 @@ const profileTemplate = () => `
 </ul>
 </div>
 </div>
-
 </section>
   `;
 
@@ -109,28 +108,9 @@ const Profile = () => {
     textArea.style.height = `${textArea.scrollHeight}px`;
   });
 
-  divInfoUser.insertAdjacentHTML('beforeend', attendingEvents());
-  const attendingEventModal = document.querySelector('#events-modal');
-  const closeEventsBtn = document.querySelector('.close-events-btn');
+  attendingEvents();
 
-  closeEventsBtn.addEventListener('click', () => {
-    attendingEventModal.close();
-  });
-
-  divInfoUser.insertAdjacentHTML('beforeend', createModProfileModal());
-  const modProfileModal = document.querySelector('#mod-profile-modal');
-  const modProfileBtn = document.querySelector('.mod-profile-btn');
-  const closeModProfileBtn = document.querySelector('.close-mod-profile-btn');
-
-  modProfileBtn.addEventListener('click', () => {
-    modProfilePost();
-  });
-
-  closeModProfileBtn.addEventListener('click', () => {
-    const modForm = document.querySelector('#mod-profile');
-    modForm.reset();
-    modProfileModal.close();
-  });
+  modProfile();
 
   divInfoUser.insertAdjacentHTML('beforeend', createDeleteModal());
   const deleteModal = document.querySelector('#delete-modal');

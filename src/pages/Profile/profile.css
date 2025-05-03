@@ -20,10 +20,7 @@
 }
 
 .change-img,
-#makeChangeImg,
-.mod-profile-btn,
-.delete-account-btn,
-.delete-no-btn {
+#makeChangeImg {
   background-color: #007bff;
   border: 2px solid #007bff;
   color: #fff;
@@ -37,10 +34,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.change-img:hover,
-.mod-profile-btn:hover,
-.delete-account-btn:hover,
-.delete-no-btn:hover {
+.change-img:hover {
   background-color: #0056b3;
   border-color: #0056b3;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -49,12 +43,10 @@
 .mod-profile-btn {
   margin-top: 1rem;
   width: 90%;
+  align-self: center;
 }
 
-.change-img:active,
-.mod-profile-btn:active,
-.delete-account-btn:active,
-.delete-no-btn:active {
+.change-img:active {
   background-color: #003d80;
   box-shadow: none;
 }
@@ -79,6 +71,26 @@
 #close-event-modal {
   width: 25%;
   align-self: center;
+}
+
+.modal-inner {
+  flex-direction: var(--flex-direction-column);
+}
+
+.close-events-btn {
+  width: 25%;
+}
+
+.delete-modal-inner {
+  flex-direction: var(--flex-direction-column);
+}
+
+.delete-account-btn {
+  align-self: center;
+}
+
+.delete-no-btn {
+  width: 50%;
 }
 
 #tasks {

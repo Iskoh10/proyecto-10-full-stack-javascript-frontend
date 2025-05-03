@@ -29,7 +29,6 @@ const modProfilePost = async () => {
       updateData.password = inputPassword.value.trim();
     }
 
-    console.log(updateData);
     try {
       const modProfile = await fetch(
         `http://localhost:3000/api/v1/users/${userId}`,

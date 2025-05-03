@@ -49,7 +49,7 @@ createNavbar();
 
 Events();
 
-window.addEventListener('beforeunload', () => {
-  localStorage.removeItem('user');
-});
-//! Cambiar logo al cambiar el theme al igual que revisar el cambio de color de letras
+// window.addEventListener('beforeunload', () => {
+//   localStorage.removeItem('user');
+// });
+//! Revisar el cambio de color de letras

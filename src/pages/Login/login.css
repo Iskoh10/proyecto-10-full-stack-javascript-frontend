@@ -113,10 +113,6 @@ button.recover-btn {
 
 button#close-reset,
 #close-changeImg,
-.close-events-btn,
-.close-mod-profile-btn,
-.close-delete-btn,
-.delete-yes-btn,
 .leave-attend,
 .close-event-btn {
   all: unset;
@@ -136,9 +132,6 @@ button#close-reset,
 
 button#close-reset:hover,
 #close-changeImg:hover,
-.close-mod-profile-btn:hover,
-.close-delete-btn:hover,
-.delete-yes-btn:hover,
 .leave-attend:hover,
 .close-event-btn:hover {
   background-color: white;
@@ -164,5 +157,15 @@ button#close-reset {
 }
 
 .close-mod-profile-btn {
-  width: 30%;
+  align-self: center;
+  width: 25%;
+}
+
+.close-delete-btn {
+  width: 25%;
+}
+
+.delete-yes-btn {
+  width: 25%;
+  align-self: center;
 }
