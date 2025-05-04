@@ -1,14 +1,14 @@
 .img-container {
-  min-width: 30vw;
+  width: 100%;
   min-height: 30vh;
+}
+
+.modal-content {
+  flex-direction: var(--flex-direction-column);
 }
 
 .modal-content > h2 {
   margin-bottom: 1rem;
-}
-
-.event-img {
-  height: 100%;
 }
 
 p.description {

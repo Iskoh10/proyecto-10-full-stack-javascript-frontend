@@ -31,5 +31,3 @@ const createToggle = (parentNode) => {
 };
 
 export default createToggle;
-
-//! Arreglar cambio de colores y fondo segun el toggle

@@ -1,13 +1,11 @@
+import createButton from '../../components/CreateButton/createButton';
 import createEventModal from '../../components/EventsModal/eventsModal';
 import createSpinner from '../../components/Loader/loader';
 import attendingEvents from '../../handlers/attendingEvents';
 import changeImg from '../../handlers/changeImg';
-import deleteAccount from '../../handlers/deleteAccount';
-import createDeleteModal from '../../handlers/deleteModal';
+import modalDeleteAccount from '../../handlers/deleteModal';
 import getEventsUser from '../../handlers/getEventsUser';
 import modProfile from '../../handlers/modifyProfile';
-import createModProfileModal from '../../handlers/modifyProfile';
-import modProfilePost from '../../handlers/modProfilePost';
 import CreateEvent from '../../handlers/postEvent';
 import './profile.css';
 
@@ -15,18 +13,15 @@ const profileTemplate = () => `
 <section id="profile" class="flex-container">
 <div class="div-img flex-container">
 <img class="user-img"></img>
-<button type="button" class="change-img">Cambiar Imagen</button>
 </div>
 
  <dialog class="changeImg-modal" id="changeImg-modal">
-  <form id="changeImg-form" method="dialog">
+  <form id="changeImg-form" class="flex-container" method="dialog">
     <h2>Cambio de Imagen</h2>
     <input
       type="file"
       class="profileImgInput"
       accept="image/*" />
-    <button id="makeChangeImg" type="button">Haz el cambio</button>
-    <button type="button" id="close-changeImg">Cancelar</button>
   </form>
 </dialog>
 
@@ -76,10 +71,33 @@ const Profile = () => {
   getUserById();
 
   const modal = document.querySelector('.changeImg-modal');
+  const changeImgForm = document.querySelector('#changeImg-form');
+  const divImg = document.querySelector('.div-img');
+
+  createButton({
+    parentNode: divImg,
+    text: 'Cambiar Imagen',
+    classNameType: 'primary',
+    className: 'change-img'
+  });
+
   const closeBtn = document.querySelector('#close-changeImg');
 
   document.querySelector('.change-img').addEventListener('click', () => {
     modal.showModal();
+  });
+
+  createButton({
+    parentNode: changeImgForm,
+    text: 'Haz el cambio',
+    classNameType: 'primary',
+    id: 'makeChangeImg'
+  });
+  createButton({
+    parentNode: changeImgForm,
+    text: 'Cancelar',
+    classNameType: 'secondary',
+    id: 'close-changeImg'
   });
 
   changeImg();
@@ -90,9 +108,7 @@ const Profile = () => {
   });
 
   createEventModal();
-  const divInfoUser = document.querySelector('.info-user');
 
-  //! Corregir codigo y vamos por eventos reservados
   const eventModal = document.querySelector('#event-modal');
   const closeBtnEvent = document.querySelector('#close-event-modal');
   const textArea = document.querySelector('#event-description');
@@ -112,34 +128,7 @@ const Profile = () => {
 
   modProfile();
 
-  divInfoUser.insertAdjacentHTML('beforeend', createDeleteModal());
-  const deleteModal = document.querySelector('#delete-modal');
-  const deleteAccountBtn = document.querySelector('.delete-account-btn');
-  const closeDeleteBtn = document.querySelector('.close-delete-btn');
-  const confirmDeleteModal = document.querySelector('#confirm-delete-modal');
-  const deleteYesBtn = document.querySelector('.delete-yes-btn');
-  const deleteNoBtn = document.querySelector('.delete-no-btn');
-
-  deleteAccountBtn.addEventListener('click', () => {
-    // deleteAccount();
-    confirmDeleteModal.showModal();
-    console.log(
-      'Crear un nuevo modal donde se le advierta, ¿Estás a punto de borrar tu cuenta estás seguro? si no'
-    );
-  });
-
-  deleteYesBtn.addEventListener('click', () => {
-    deleteAccount();
-  });
-
-  deleteNoBtn.addEventListener('click', () => {
-    confirmDeleteModal.close();
-    deleteModal.close();
-  });
-
-  closeDeleteBtn.addEventListener('click', () => {
-    deleteModal.close();
-  });
+  modalDeleteAccount();
 
   const liItemsTask = document.querySelectorAll('.ul-tasks li');
 
@@ -150,11 +139,10 @@ const Profile = () => {
       switch (className) {
         case 'create-event':
           const eventModal = document.querySelector('#event-modal');
-
           CreateEvent();
           eventModal.showModal();
-
           break;
+
         case 'attending-events':
           const attendingEventModal = document.querySelector('#events-modal');
           attendingEventModal.showModal();
@@ -187,6 +175,6 @@ export default Profile;
 
 //! Unificar el añadir el dialog y el addeventlistener al boton cancelar
 
-//! Quitar lo del user localStorage
+//! Actualizar todos los modales al componente y sus respectivos css
 
 //! Lo de enviar mensajes y mensajes recibidos lo voy a dejar para más adelante, solo lo tendría el admin, y tendria todos los usuarios recogidos en un select, el modelo de usuario tendria una propiedad objeto llamada mensajes, y tendria que recoger el emisor, un titulo y el cuerpo del mensaje.

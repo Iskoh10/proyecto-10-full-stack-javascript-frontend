@@ -34,5 +34,3 @@ const createModalReset = () => {
 };
 
 export default createModalReset;
-
-//! revisar y borrar codigo del boton cerrar del reset modal,

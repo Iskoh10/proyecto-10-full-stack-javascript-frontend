@@ -1,3 +1,5 @@
+import createButton from '../CreateButton/createButton';
+import createModal from '../createModal/createModal';
 import './eventCard.css';
 const eventCard = (event) => {
   const sectionEvents = document.querySelector('#events');
@@ -8,26 +10,37 @@ const eventCard = (event) => {
     oldModalEvent.remove();
   }
 
-  const modal = document.createElement('dialog');
-  modal.className = 'flex-container';
-  modal.setAttribute('id', 'event-details');
+  createModal({
+    parentNode: sectionEvents,
+    className: 'flex-container',
+    id: 'event-details'
+  });
+
+  const modal = document.querySelector('.modal');
 
   modal.innerHTML = `
-  <div class="modal-content">
-<h2>${event.title}</h2>
-<div class="img-container">
-<img class="event-img" src=${event.img} alt=${event.title}/>
-</div>
-<p class="description">${event.description}</p>
-<p class="participants">Asistentes: ${event.participants
-    .map((p) => p.nameUser)
-    .join(', ')}</p>
-</div>
-<button class="close-event-btn" type="button"> Salir</button>
+  <div class="modal-content flex-container">
+    <h2>${event.title}</h2>
+    <div class="img-container">
+      <img class="event-img" src=${event.img} alt=${event.title}/>
+    </div>
+    <p class="description">${event.description}</p>
+    <p class="participants">Asistentes: ${event.participants
+      .map((p) => p.nameUser)
+      .join(', ')}</p>
+  </div>
 `;
 
-  sectionEvents.appendChild(modal);
   modal.showModal();
+
+  const modalContent = document.querySelector('.modal-content');
+
+  createButton({
+    parentNode: modalContent,
+    text: 'Salir',
+    classNameType: 'secondary',
+    className: 'close-event-btn'
+  });
 
   const closeBtn = document.querySelector('.close-event-btn');
   closeBtn.addEventListener('click', () => {

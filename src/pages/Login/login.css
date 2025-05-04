@@ -84,22 +84,8 @@ button#recover-password:hover {
   transform: translate(0);
 }
 
-@starting-style {
-  .recover-modal[open] {
-    opacity: 0;
-    transform: translateY(-50%);
-  }
-  .recover-modal[open]::backdrop {
-    transform: translate(100%);
-  }
-}
-
-.modalrec_container {
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
+.profileImgInput {
+  width: 100%;
 }
 
 #registerbtn,
@@ -112,7 +98,6 @@ button.recover-btn {
 }
 
 button#close-reset,
-#close-changeImg,
 .leave-attend,
 .close-event-btn {
   all: unset;
@@ -131,7 +116,6 @@ button#close-reset,
 }
 
 button#close-reset:hover,
-#close-changeImg:hover,
 .leave-attend:hover,
 .close-event-btn:hover {
   background-color: white;
@@ -162,10 +146,10 @@ button#close-reset {
 }
 
 .close-delete-btn {
+  margin-top: 0;
   width: 25%;
 }
 
 .delete-yes-btn {
   width: 25%;
-  align-self: center;
 }
