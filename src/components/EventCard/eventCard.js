@@ -1,7 +1,10 @@
+import getEventDetails from '../../handlers/getEventById';
 import createButton from '../CreateButton/createButton';
-import createModal from '../createModal/createModal';
+import createModal from '../CreateModal/createModal';
 import './eventCard.css';
-const eventCard = (event) => {
+const eventCard = async (eventId) => {
+  const event = await getEventDetails(eventId);
+
   const sectionEvents = document.querySelector('#events');
 
   const oldModalEvent = document.querySelector('#event-details');
@@ -16,7 +19,7 @@ const eventCard = (event) => {
     id: 'event-details'
   });
 
-  const modal = document.querySelector('.modal');
+  const modal = document.querySelector('#event-details');
 
   modal.innerHTML = `
   <div class="modal-content flex-container">

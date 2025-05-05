@@ -1,6 +1,7 @@
 import createButton from '../../components/CreateButton/createButton';
 
-const registerTemplate = () => `<dialog class="reset-modal" id="reset-modal">
+const registerTemplate = () => `
+<dialog class="reset-modal" id="reset-modal">
   <form id="reset-form" method="dialog" class="flex-container">
     <h2>🔐 Nueva contraseña</h2>
     <input
@@ -34,3 +35,5 @@ const createModalReset = () => {
 };
 
 export default createModalReset;
+
+//! Quedan por actualizar a componentes el reset y el recover modal

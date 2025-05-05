@@ -1,29 +1,21 @@
 import createButton from '../../components/CreateButton/createButton';
-import createEventModal from '../../components/EventsModal/eventsModal';
+import createNewEvent from '../../components/CreateEvent/createNewEvent';
 import createSpinner from '../../components/Loader/loader';
-import attendingEvents from '../../handlers/attendingEvents';
+import attendingEvents from '../../components/AttendingEvents/attendingEvents';
 import changeImg from '../../handlers/changeImg';
 import modalDeleteAccount from '../../handlers/deleteModal';
 import getEventsUser from '../../handlers/getEventsUser';
 import modProfile from '../../handlers/modifyProfile';
 import CreateEvent from '../../handlers/postEvent';
 import './profile.css';
+import createModal from '../../components/CreateModal/createModal';
 
 const profileTemplate = () => `
 <section id="profile" class="flex-container">
-<div class="div-img flex-container">
-<img class="user-img"></img>
-</div>
+  <div class="div-img flex-container">
+    <img class="user-img"></img>
+  </div>
 
- <dialog class="changeImg-modal" id="changeImg-modal">
-  <form id="changeImg-form" class="flex-container" method="dialog">
-    <h2>Cambio de Imagen</h2>
-    <input
-      type="file"
-      class="profileImgInput"
-      accept="image/*" />
-  </form>
-</dialog>
 
 <div class="info-user flex-container">
   <header class="header-info">
@@ -70,7 +62,26 @@ const Profile = () => {
   createSpinner('Cargando tu perfil');
   getUserById();
 
-  const modal = document.querySelector('.changeImg-modal');
+  const sectionProfile = document.querySelector('#profile');
+
+  createModal({
+    parentNode: sectionProfile,
+    className: 'flex-container',
+    id: 'changeImg-modal'
+  });
+
+  const modal = document.querySelector('#changeImg-modal');
+
+  modal.innerHTML = `
+  <form id="changeImg-form" class="flex-container" method="dialog">
+    <h2>Cambio de Imagen</h2>
+    <input
+      type="file"
+      class="profileImgInput"
+      accept="image/*" />
+  </form>
+  `;
+
   const changeImgForm = document.querySelector('#changeImg-form');
   const divImg = document.querySelector('.div-img');
 
@@ -107,7 +118,7 @@ const Profile = () => {
     modal.close();
   });
 
-  createEventModal();
+  createNewEvent();
 
   const eventModal = document.querySelector('#event-modal');
   const closeBtnEvent = document.querySelector('#close-event-modal');

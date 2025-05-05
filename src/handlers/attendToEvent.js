@@ -16,8 +16,6 @@ const attendToEvent = async (eventId) => {
       }
     );
 
-    console.log(response);
-
     if (response.ok) {
       console.log('Asistente añadido al evento');
     } else {

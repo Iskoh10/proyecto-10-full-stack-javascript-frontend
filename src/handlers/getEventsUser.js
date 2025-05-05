@@ -4,8 +4,8 @@ import createSpinner from '../components/Loader/loader';
 const getEventsUser = async () => {
   const { id, token } = JSON.parse(localStorage.getItem('user'));
 
-  createSpinner('Cargando tus próximos eventos');
   try {
+    createSpinner('Cargando tus próximos eventos');
     const events = await fetch(
       `http://localhost:3000/api/v1/events/user/${id}`,
       {

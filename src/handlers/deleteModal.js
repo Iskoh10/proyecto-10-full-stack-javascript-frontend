@@ -1,28 +1,41 @@
 import createButton from '../components/CreateButton/createButton';
+import createModal from '../components/CreateModal/createModal';
 import deleteAccount from './deleteAccount';
-
-const createDeleteModal = () => `
-<dialog id="delete-modal" class="flex-container">
-  <div class="delete-modal-inner flex-container">
-    <h2>Eliminar Cuenta</h2>
-    <p>¿Desea eliminar su cuenta?</p>
-  </div>
-</dialog>
-
-<dialog id="confirm-delete-modal" class="flex-container">
-<div class="inner-confirm-delete-modal flex-container">
-<h2>¡ADVERTENCIA!</h2>
-<p>¿Estás a punto de eliminar tu cuenta?</p>
-</div>
-</dialog>
-`;
 
 const modalDeleteAccount = () => {
   const divInfoUser = document.querySelector('.info-user');
 
-  divInfoUser.insertAdjacentHTML('beforeend', createDeleteModal());
+  createModal({
+    parentNode: divInfoUser,
+    className: 'flex-container',
+    id: 'delete-modal'
+  });
+
+  const modal = document.querySelector('#delete-modal');
+
+  modal.innerHTML = `
+  <div class="delete-modal-inner flex-container">
+    <h2>Eliminar Cuenta</h2>
+    <p>¿Desea eliminar su cuenta?</p>
+  </div>
+  `;
+
+  createModal({
+    parentNode: divInfoUser,
+    className: 'flex-container',
+    id: 'confirm-delete-modal'
+  });
+
+  const confirmModal = document.querySelector('#confirm-delete-modal');
+
+  confirmModal.innerHTML = `
+  <div class="inner-confirm-delete-modal flex-container">
+<h2>¡ADVERTENCIA!</h2>
+<p>¿Estás a punto de eliminar tu cuenta?</p>
+</div>
+  `;
+
   const deleteModalInner = document.querySelector('.delete-modal-inner');
-  const deleteModal = document.querySelector('#delete-modal');
 
   createButton({
     parentNode: deleteModalInner,
@@ -40,14 +53,13 @@ const modalDeleteAccount = () => {
 
   const deleteAccountBtn = document.querySelector('.delete-account-btn');
   const closeDeleteBtn = document.querySelector('.close-delete-btn');
-  const confirmDeleteModal = document.querySelector('#confirm-delete-modal');
 
   deleteAccountBtn.addEventListener('click', () => {
-    confirmDeleteModal.showModal();
+    confirmModal.showModal();
   });
 
   closeDeleteBtn.addEventListener('click', () => {
-    deleteModal.close();
+    modal.close();
   });
 
   const innerConfirmDelModal = document.querySelector(
@@ -76,8 +88,8 @@ const modalDeleteAccount = () => {
   });
 
   deleteNoBtn.addEventListener('click', () => {
-    confirmDeleteModal.close();
-    deleteModal.close();
+    confirmModal.close();
+    modal.close();
   });
 };
 

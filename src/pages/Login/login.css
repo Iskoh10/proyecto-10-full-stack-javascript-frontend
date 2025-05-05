@@ -16,21 +16,8 @@ button#recover-password:hover {
   transform: scale(1.05);
 }
 
-#events-modal,
-#mod-profile-modal,
-#delete-modal {
-  flex-direction: var(--flex-direction-column);
-}
-
 .recover-modal,
-#reset-modal,
-#changeImg-modal,
-#event-modal,
-#events-modal,
-#mod-profile-modal,
-#delete-modal,
-#confirm-delete-modal,
-#event-details {
+#reset-modal {
   inset: 0;
   margin: auto;
   width: min(35%, 1000px);
@@ -44,43 +31,19 @@ button#recover-password:hover {
   transition-behavior: allow-discrete;
 }
 
-.recover-modal::backdrop,
-#reset-modal::backdrop,
-#changeImg-modal::backdrop,
-#event-modal::backdrop,
-#events-modal::backdrop,
-#mod-profile-modal::backdrop,
-#delete-modal::backdrop,
-#confirm-delete-modal::backdrop,
-#event-details::backdrop {
+.recover-modal::backdrop {
   background-color: #00000074;
   transform: translate(100%);
   transition: 0.5s transform;
 }
 
-.recover-modal[open],
-#reset-modal[open],
-#changeImg-modal[open],
-#event-modal[open],
-#events-modal[open],
-#mod-profile-modal[open],
-#delete-modal[open],
-#confirm-delete-modal[open],
-#event-details[open] {
+.recover-modal[open] {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
 
-.recover-modal[open]::backdrop,
-#reset-modal[open]::backdrop,
-#changeImg-modal[open]::backdrop,
-#event-modal[open]::backdrop,
-#events-modal[open]::backdrop,
-#mod-profile-modal[open]::backdrop,
-#delete-modal[open]::backdrop,
-#confirm-delete-modal[open]::backdrop,
-#event-details[open]::backdrop {
+.recover-modal[open]::backdrop {
   transform: translate(0);
 }
 
@@ -98,8 +61,7 @@ button.recover-btn {
 }
 
 button#close-reset,
-.leave-attend,
-.close-event-btn {
+.leave-attend {
   all: unset;
   border: 2px solid black;
   border-radius: 1rem;
@@ -116,8 +78,7 @@ button#close-reset,
 }
 
 button#close-reset:hover,
-.leave-attend:hover,
-.close-event-btn:hover {
+.leave-attend:hover {
   background-color: white;
   transform: scale(1.05);
 }
@@ -140,16 +101,11 @@ button#close-reset {
   padding: 0.5rem 0;
 }
 
-.close-mod-profile-btn {
-  align-self: center;
-  width: 25%;
-}
-
 .close-delete-btn {
-  margin-top: 0;
-  width: 25%;
+  width: 30%;
 }
 
 .delete-yes-btn {
+  align-self: center;
   width: 25%;
 }

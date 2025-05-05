@@ -8,7 +8,6 @@ import createModalReset from '../Reset/reset';
 
 const eventTemplate = () => {
   const user = JSON.parse(localStorage.getItem('user'));
-
   return `
 <section id="events">
 ${
@@ -22,8 +21,6 @@ ${
 };
 
 const getEvents = async () => {
-  const ul = document.querySelector('.navBar > ul');
-
   createSpinner('Cargando Eventos');
   const eventsData = await fetch('http://localhost:3000/api/v1/events');
   const events = await eventsData.json();
@@ -96,11 +93,11 @@ const getEvents = async () => {
     createSpinner('close');
   }
   const liEventsIn = document.querySelectorAll('.li-event-in');
-  console.log(liEventsIn);
+
   for (const li of liEventsIn) {
-    li.addEventListener('click', (e) => {
-      const li = e.currentTarget;
-      eventCard(li.eventData);
+    li.addEventListener('click', () => {
+      const event = li.eventData;
+      eventCard(event._id);
     });
   }
 };
@@ -121,6 +118,7 @@ const Events = () => {
       }
     }
   }, 0);
+
   getEvents();
 };
 

@@ -1,5 +1,12 @@
+import eventCard from '../components/EventCard/eventCard';
 import attendToEvent from './attendToEvent';
+import getEventDetails from './getEventById';
 import leaveEvent from './leaveEvent';
+
+// const updateEventDetails = async (eventId) => {
+//   const newEventData = await getEventDetails(eventId);
+//   eventCard(newEventData);
+// };
 
 const handleAttendClick = async (e) => {
   e.stopPropagation();
@@ -16,6 +23,8 @@ const handleAttendClick = async (e) => {
     btn.dataset.attending = 'true';
     btn.innerHTML = '❤️‍🔥 Dejar de asistir';
   }
+
+  // await updateEventDetails(eventId);
 };
 
 const attachEventListeners = () => {

@@ -1,3 +1,12 @@
+.li-event-user {
+  --c1: #0f8dd4;
+  --c2: #ecb6c1;
+  --c3: #eb822f;
+  --c4: #8f29d0;
+  --c5: #34d653;
+  --c6: #d7de2d;
+}
+
 #profile {
   width: 100%;
   justify-content: flex-start;
@@ -25,7 +34,7 @@
 }
 
 #close-changeImg {
-  width: 25%;
+  width: 30%;
 }
 
 .mod-profile-btn {
@@ -51,13 +60,13 @@
   margin-top: 2rem;
 }
 
-#close-event-modal {
-  width: 25%;
-  align-self: center;
+.modal-container {
+  width: 100%;
 }
 
 .modal-inner {
   flex-direction: var(--flex-direction-column);
+  min-width: 100%;
 }
 
 .close-events-btn {
@@ -70,6 +79,7 @@
 
 .delete-modal-inner > h2,
 .inner-confirm-delete-modal > h2 {
+  color: red;
   margin-bottom: 1rem;
 }
 
@@ -82,7 +92,7 @@
 }
 
 .delete-no-btn {
-  width: 50%;
+  align-self: end;
 }
 
 #tasks {
@@ -145,7 +155,15 @@ textarea {
   margin: 1rem;
   border-radius: 10px;
   width: 100%;
-  background-color: #a0c1c9;
+  background: radial-gradient(
+    circle at top left,
+    var(--c1) 0%,
+    var(--c2) 18%,
+    var(--c3) 36%,
+    var(--c4) 50%,
+    var(--c5) 72%,
+    var(--c6) 100%
+  );
   color: #333;
 }
 
