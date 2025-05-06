@@ -150,6 +150,26 @@ input[type='file'] {
 
 .footer {
   border: 1px solid blue;
-  width: 90%;
-  height: 100px;
+  width: 100%;
+  color: white;
+  background: radial-gradient(
+      circle at 100% 50%,
+      transparent 20%,
+      #362b2b4d 21%,
+      #ffffff4d 34%,
+      transparent 35%,
+      transparent
+    ),
+    radial-gradient(
+        circle at 0% 50%,
+        transparent 20%,
+        #362b2b4d 21%,
+        #ffffff4d 34%,
+        transparent 35%,
+        transparent
+      )
+      0 -50px;
+  background-color: #28282e;
+  background-size: 75px 100px;
+  flex-direction: var(--flex-direction-column);
 }

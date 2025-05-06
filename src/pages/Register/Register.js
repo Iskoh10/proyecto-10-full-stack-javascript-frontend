@@ -24,20 +24,22 @@ const registerTemplate = () => `
 
 const Register = () => {
   document.querySelector('main').innerHTML = registerTemplate();
+
   const formRegister = document.querySelector('.register > form');
+
   createButton({
     parentNode: formRegister,
     text: 'Crear cuenta',
     classNameType: 'primary',
     id: 'registerbtn'
   });
+
   validateForm();
 
   document.querySelector('#registerbtn').addEventListener('click', (e) => {
     e.preventDefault();
     registerSubmit();
   });
-  window.scrollTo(0, 0);
 };
 
 export default Register;

@@ -1,14 +1,12 @@
-import createButton from '../../components/CreateButton/createButton';
+import './profile.css';
 import createNewEvent from '../../components/CreateEvent/createNewEvent';
 import createSpinner from '../../components/Loader/loader';
 import attendingEvents from '../../components/AttendingEvents/attendingEvents';
-import changeImg from '../../handlers/changeImg';
 import modalDeleteAccount from '../../handlers/deleteModal';
 import getEventsUser from '../../handlers/getEventsUser';
 import modProfile from '../../handlers/modifyProfile';
 import CreateEvent from '../../handlers/postEvent';
-import './profile.css';
-import createModal from '../../components/CreateModal/createModal';
+import createChangeImgModal from '../../components/CreateChangeImgModal/createChangeImgModal';
 
 const profileTemplate = () => `
 <section id="profile" class="flex-container">
@@ -16,21 +14,21 @@ const profileTemplate = () => `
     <img class="user-img"></img>
   </div>
 
+  <div class="info-user flex-container">
+    <header class="header-info">
+      <h2 class="nameUser"></h2>
+      <p class="emailUser"></p>
+    </header>
 
-<div class="info-user flex-container">
-  <header class="header-info">
-  <h2 class="nameUser"></h2>
-  <p class="emailUser"></p>
-  </header>
-<div id="tasks" class="flex-container">
-<ul class="ul-tasks flex-container">
-<li class="create-event">Crear Evento</li>
-<li class="attending-events">Eventos reservados</li>
-<li class="modify-profile">Modificar Perfil</li>
-<li class="delete-account">Eliminar Cuenta</li>
-</ul>
-</div>
-</div>
+    <div id="tasks" class="flex-container">
+      <ul class="ul-tasks flex-container">
+        <li class="create-event">Crear Evento</li>
+        <li class="attending-events">Eventos reservados</li>
+        <li class="modify-profile">Modificar Perfil</li>
+        <li class="delete-account">Eliminar Cuenta</li>
+      </ul>
+    </div>
+  </div>
 </section>
   `;
 
@@ -59,81 +57,14 @@ const getUserById = async () => {
 
 const Profile = () => {
   document.querySelector('main').innerHTML = profileTemplate();
+
   createSpinner('Cargando tu perfil');
+
   getUserById();
 
-  const sectionProfile = document.querySelector('#profile');
-
-  createModal({
-    parentNode: sectionProfile,
-    className: 'flex-container',
-    id: 'changeImg-modal'
-  });
-
-  const modal = document.querySelector('#changeImg-modal');
-
-  modal.innerHTML = `
-  <form id="changeImg-form" class="flex-container" method="dialog">
-    <h2>Cambio de Imagen</h2>
-    <input
-      type="file"
-      class="profileImgInput"
-      accept="image/*" />
-  </form>
-  `;
-
-  const changeImgForm = document.querySelector('#changeImg-form');
-  const divImg = document.querySelector('.div-img');
-
-  createButton({
-    parentNode: divImg,
-    text: 'Cambiar Imagen',
-    classNameType: 'primary',
-    className: 'change-img'
-  });
-
-  const closeBtn = document.querySelector('#close-changeImg');
-
-  document.querySelector('.change-img').addEventListener('click', () => {
-    modal.showModal();
-  });
-
-  createButton({
-    parentNode: changeImgForm,
-    text: 'Haz el cambio',
-    classNameType: 'primary',
-    id: 'makeChangeImg'
-  });
-  createButton({
-    parentNode: changeImgForm,
-    text: 'Cancelar',
-    classNameType: 'secondary',
-    id: 'close-changeImg'
-  });
-
-  changeImg();
-
-  closeBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.close();
-  });
+  createChangeImgModal();
 
   createNewEvent();
-
-  const eventModal = document.querySelector('#event-modal');
-  const closeBtnEvent = document.querySelector('#close-event-modal');
-  const textArea = document.querySelector('#event-description');
-
-  closeBtnEvent.addEventListener('click', () => {
-    const eventForm = document.querySelector('#event-form');
-    eventForm.reset();
-    eventModal.close();
-  });
-
-  textArea.addEventListener('input', () => {
-    textArea.style.height = 'auto';
-    textArea.style.height = `${textArea.scrollHeight}px`;
-  });
 
   attendingEvents();
 
@@ -179,13 +110,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-//! Crear un la pag del perfil donde podrá crear eventos, buscar eventos por fechas, modificar o eliminar eventos (si ellos lo crearon) y mandar message a todos los usuarios cuando se logueen si estan asistiendo al evento. Eliminar su cuenta pidiendo su contraseña. No borrar de la bbdd pero tendria que recuperar como si hubiese olvidado contraseña. y debe aceptar el admin. Permite clickar en eventos para ver detalles del mismo "Permite a los usuarios explorar detalles de cada evento y la lista de asistentes".
-
-//! Crear una clase mainButton para css para unificar
-
-//! Unificar el añadir el dialog y el addeventlistener al boton cancelar
-
-//! Actualizar todos los modales al componente y sus respectivos css
-
-//! Lo de enviar mensajes y mensajes recibidos lo voy a dejar para más adelante, solo lo tendría el admin, y tendria todos los usuarios recogidos en un select, el modelo de usuario tendria una propiedad objeto llamada mensajes, y tendria que recoger el emisor, un titulo y el cuerpo del mensaje.

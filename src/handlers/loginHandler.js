@@ -30,7 +30,6 @@ const loginSubmit = async (emailParam, passwordParam) => {
     }
 
     const user = dataRes.user;
-    console.log(dataRes.token);
 
     localStorage.setItem(
       'user',

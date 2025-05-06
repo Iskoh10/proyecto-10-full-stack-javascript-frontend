@@ -44,6 +44,21 @@ const createNewEvent = () => {
     classNameType: 'secondary',
     id: 'close-event-modal'
   });
+
+  const closeBtnEvent = document.querySelector('#close-event-modal');
+
+  closeBtnEvent.addEventListener('click', () => {
+    const eventForm = document.querySelector('#event-form');
+    eventForm.reset();
+    eventModal.close();
+  });
+
+  const textArea = document.querySelector('#event-description');
+
+  textArea.addEventListener('input', () => {
+    textArea.style.height = 'auto';
+    textArea.style.height = `${textArea.scrollHeight}px`;
+  });
 };
 
 export default createNewEvent;

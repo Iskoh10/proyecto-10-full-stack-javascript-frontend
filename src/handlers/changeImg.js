@@ -5,9 +5,11 @@ import Profile from '../pages/Profile/profile';
 const changeImg = () => {
   const fileInput = document.querySelector('.profileImgInput');
   const makeChangeBtn = document.querySelector('#makeChangeImg');
-  const modal = document.querySelector('.changeImg-modal');
+  const modal = document.querySelector('#changeImg-modal');
 
-  if (!fileInput) return console.log('No se encontró el input de la imagen');
+  if (!fileInput) {
+    console.log('No se encontró el input de la imagen');
+  }
 
   makeChangeBtn?.addEventListener('click', async () => {
     const file = fileInput.files[0];
