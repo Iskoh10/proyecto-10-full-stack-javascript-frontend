@@ -1,9 +1,10 @@
-import createModalReset from '../../pages/Reset/reset';
+import createModalReset from '../CreateReset/createReset';
 import createSpinner from '../Loader/loader';
 import createMessage from '../Message/message';
 
 const resetPassword = (token) => {
   createModalReset();
+
   const resetModal = document.querySelector('#reset-modal');
   const resetForm = document.querySelector('#reset-form');
   const closeResetBtn = document.querySelector('#close-reset');

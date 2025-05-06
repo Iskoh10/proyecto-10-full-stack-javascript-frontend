@@ -24,6 +24,7 @@
 .div-nav {
   width: 70%;
   flex-direction: var(--flex-direction-column);
+  padding: 1rem;
 }
 
 .navBar {

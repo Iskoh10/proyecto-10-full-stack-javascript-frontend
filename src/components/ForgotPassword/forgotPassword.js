@@ -3,8 +3,8 @@ import createSpinner from '../Loader/loader';
 import createMessage from '../Message/message';
 
 const sendEmail = () => {
-  const modal = document.querySelector('.recover-modal');
-  const form = modal?.querySelector('.recover-modal > form');
+  const modal = document.querySelector('#recover-modal');
+  const form = modal?.querySelector('.recover-form');
   const emailInput = document.querySelector('#emailrec');
 
   form?.addEventListener('submit', async (e) => {

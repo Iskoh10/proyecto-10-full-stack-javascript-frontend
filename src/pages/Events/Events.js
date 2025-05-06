@@ -4,7 +4,6 @@ import resetPassword from '../../components/ResetPassword/resetPassword';
 import createSpinner from '../../components/Loader/loader';
 import eventCard from '../../components/EventCard/eventCard';
 import createButton from '../../components/CreateButton/createButton';
-import createModalReset from '../Reset/reset';
 
 const eventTemplate = () => {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -110,12 +109,7 @@ const Events = () => {
 
   setTimeout(() => {
     if (token) {
-      createModalReset();
-      const resetModal = document.querySelector('#reset-modal');
-      if (resetModal) {
-        resetModal.showModal();
-        resetPassword(token);
-      }
+      resetPassword(token);
     }
   }, 0);
 
