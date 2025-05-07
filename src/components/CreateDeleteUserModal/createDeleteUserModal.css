@@ -1,0 +1,25 @@
+#users-select {
+  appearance: none;
+  width: 30%;
+  margin-top: 1rem;
+  border: 1px solid blueviolet;
+  border-radius: 3em;
+  padding: 0.3rem 1rem;
+  text-align: left;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#users-select:hover {
+  background-color: #ffbebe;
+}
+
+#confirm-del-user-modal {
+  flex-direction: var(--flex-direction-column);
+}
+
+.btn-container {
+  width: 30%;
+  padding: 1rem;
+  gap: 1rem;
+}

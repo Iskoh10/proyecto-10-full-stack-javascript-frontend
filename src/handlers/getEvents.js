@@ -103,13 +103,12 @@ const getEvents = async () => {
   }
 
   const deleteEventBtns = document.querySelectorAll('.delete-event-btn');
-  for (const deleteEventBtn of deleteEventBtns) {
+  deleteEventBtns.forEach((deleteEventBtn) => {
     deleteEventBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      console.log(e.target.offsetParent.eventData._id);
       deleteEvent(e.target.offsetParent.eventData._id);
     });
-  }
+  });
 
   const liEventsIn = document.querySelectorAll('.li-event-in');
 

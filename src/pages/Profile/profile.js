@@ -8,7 +8,7 @@ import modProfile from '../../handlers/modifyProfile';
 import CreateEvent from '../../handlers/postEvent';
 import createChangeImgModal from '../../components/CreateChangeImgModal/createChangeImgModal';
 import getUserById from '../../handlers/getUserById';
-import createModal from '../../components/CreateModal/createModal';
+import createDeleteUserModal from '../../components/CreateDeleteUserModal/createDeleteUserModal';
 
 const profileTemplate = () => {
   const main = document.querySelector('main');
@@ -39,17 +39,10 @@ const profileTemplate = () => {
     </section>
   `;
 
-    const divInfoUser = document.querySelector('.info-user');
     const deleteUserBtn = document.querySelector('.delete-user');
-    deleteUserBtn.addEventListener('click', () => {
-      createModal({
-        parentNode: divInfoUser,
-        className: 'flex-container',
-        id: 'delete-user-modal'
-      });
 
-      const modal = document.querySelector('#delete-user-modal');
-      modal.showModal(); //! Vamos por aquí
+    deleteUserBtn.addEventListener('click', () => {
+      createDeleteUserModal();
     });
   } else {
     main.innerHTML = `

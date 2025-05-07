@@ -4,7 +4,6 @@ import Events from '../pages/Events/Events';
 
 const deleteEvent = async (event) => {
   const { token } = JSON.parse(localStorage.getItem('user'));
-  console.log(`evento que llega:`, event);
 
   try {
     createSpinner('Eliminando Evento');
