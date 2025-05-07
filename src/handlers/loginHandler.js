@@ -37,7 +37,8 @@ const loginSubmit = async (emailParam, passwordParam) => {
         id: user._id,
         token: dataRes.token,
         name: user.nameUser,
-        img: user.img
+        img: user.img,
+        rol: user.rol
       })
     );
 

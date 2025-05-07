@@ -2,12 +2,6 @@ import createButton from '../components/CreateButton/createButton';
 import createModal from '../components/CreateModal/createModal';
 import modProfilePost from './modProfilePost';
 
-const createModProfileModal = () => `
-<dialog id="mod-profile-modal" class="flex-container">
-
-</dialog>
-`;
-
 const modProfile = () => {
   const divInfoUser = document.querySelector('.info-user');
 

@@ -1,6 +1,7 @@
 import createButton from '../components/CreateButton/createButton';
 import eventCard from '../components/EventCard/eventCard';
 import createSpinner from '../components/Loader/loader';
+import deleteEvent from './deleteEvent';
 import attachEventListeners from './eventHandlers';
 
 const getEvents = async () => {
@@ -23,7 +24,9 @@ const getEvents = async () => {
 
     liEvent.eventData = event;
 
-    if (!localStorage.getItem('user')) {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user) {
       liEvent.innerHTML = `
       <div class="day flex-container">
       <p>${formattedDate.split('/')[0]}</p>
@@ -37,6 +40,28 @@ const getEvents = async () => {
       </div>
           `;
       eventsContainer?.appendChild(liEvent);
+    } else if (user.rol === 'admin') {
+      liEvent.classList.add('li-event-in');
+      liEvent.innerHTML = `
+      <div class="day flex-container">
+      <p>${formattedDate.split('/')[0]}</p>
+      </div>
+      <div class="data flex-container">
+      <h3 class="event-title">${event.title}</h3>
+      <div class="event-info flex-container">
+      <p class="date">${formattedDate}</p>
+      <p class="location">${event.location}</p>
+      <p class="quien">Soy Admin</p>
+      </div>
+      </div>
+      `;
+      eventsContainer?.appendChild(liEvent);
+      createButton({
+        parentNode: liEvent,
+        text: 'Eliminar',
+        classNameType: 'primary',
+        className: 'delete-event-btn'
+      });
     } else {
       liEvent.classList.add('li-event-in');
       liEvent.innerHTML = `
@@ -51,8 +76,8 @@ const getEvents = async () => {
       </div>
       </div>
       `;
+      eventsContainer?.appendChild(liEvent);
 
-      const user = JSON.parse(localStorage.getItem('user'));
       const userId = user.id;
       const alreadyParticipating = event.participants.some(
         (p) => p._id === userId
@@ -64,6 +89,7 @@ const getEvents = async () => {
         classNameType: 'primary',
         className: 'attend'
       });
+
       btnAttend.dataset.eventId = event._id;
       btnAttend.dataset.attending = alreadyParticipating ? 'true' : 'false';
       btnAttend.innerHTML = alreadyParticipating
@@ -75,6 +101,16 @@ const getEvents = async () => {
     attachEventListeners();
     createSpinner('close');
   }
+
+  const deleteEventBtns = document.querySelectorAll('.delete-event-btn');
+  for (const deleteEventBtn of deleteEventBtns) {
+    deleteEventBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      console.log(e.target.offsetParent.eventData._id);
+      deleteEvent(e.target.offsetParent.eventData._id);
+    });
+  }
+
   const liEventsIn = document.querySelectorAll('.li-event-in');
 
   for (const li of liEventsIn) {

@@ -11,7 +11,7 @@ const CreateEvent = async () => {
   listenerExist = true;
 
   createEventBtn.addEventListener('click', async () => {
-    const modalEvent = document.querySelector('#create-event-modal');
+    const modalEvent = document.querySelector('#event-modal');
     const eventTitle = document.querySelector('#event-title');
     const eventImg = document.querySelector('#eventImgInput');
     const eventDate = document.querySelector('#event-date');
@@ -26,7 +26,6 @@ const CreateEvent = async () => {
     }
 
     modalEvent.close();
-    createSpinner('Creando nuevo Evento');
 
     const formData = new FormData();
     formData.append('title', eventTitle.value);
@@ -36,7 +35,8 @@ const CreateEvent = async () => {
     formData.append('description', eventDescription.value);
 
     try {
-      const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
+      createSpinner('Creando nuevo Evento');
+      const { token } = JSON.parse(localStorage.getItem('user'));
 
       const res = await fetch('http://localhost:3000/api/v1/events', {
         method: 'POST',
@@ -47,15 +47,17 @@ const CreateEvent = async () => {
       });
 
       if (res.ok) {
+        createSpinner('close');
         Events();
+        createMessage('Evento Creado con éxito');
       } else {
         const errorData = await res.json();
-        console.error('Error al publicar nuevo Evento:', errorData);
-        alert('Hubo algun error al publicar nuevo Evento. Intentalo de nuevo.');
+        createSpinner('close');
+        createMessage('Error al publicar el nuevo Evento:', errorData);
       }
     } catch (error) {
-      console.error('Error en la solicitud:', error);
-      alert('No se pudo conectar al servidor');
+      createSpinner('close');
+      createMessage(`Error en la conexión: ${error.message}`);
     }
   });
 };

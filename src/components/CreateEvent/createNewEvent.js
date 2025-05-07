@@ -50,7 +50,7 @@ const createNewEvent = () => {
   closeBtnEvent.addEventListener('click', () => {
     const eventForm = document.querySelector('#event-form');
     eventForm.reset();
-    eventModal.close();
+    modal.close();
   });
 
   const textArea = document.querySelector('#event-description');

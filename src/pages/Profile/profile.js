@@ -7,58 +7,75 @@ import getEventsUser from '../../handlers/getEventsUser';
 import modProfile from '../../handlers/modifyProfile';
 import CreateEvent from '../../handlers/postEvent';
 import createChangeImgModal from '../../components/CreateChangeImgModal/createChangeImgModal';
+import getUserById from '../../handlers/getUserById';
+import createModal from '../../components/CreateModal/createModal';
 
-const profileTemplate = () => `
-<section id="profile" class="flex-container">
-  <div class="div-img flex-container">
-    <img class="user-img"></img>
-  </div>
+const profileTemplate = () => {
+  const main = document.querySelector('main');
+  const user = JSON.parse(localStorage.getItem('user'));
 
-  <div class="info-user flex-container">
-    <header class="header-info">
-      <h2 class="nameUser"></h2>
-      <p class="emailUser"></p>
-    </header>
+  if (user.rol === 'admin') {
+    main.innerHTML = `
+    <section id="profile" class="flex-container">
+      <div class="div-img flex-container">
+        <img class="user-img"></img>
+      </div>
 
-    <div id="tasks" class="flex-container">
-      <ul class="ul-tasks flex-container">
-        <li class="create-event">Crear Evento</li>
-        <li class="attending-events">Eventos reservados</li>
-        <li class="modify-profile">Modificar Perfil</li>
-        <li class="delete-account">Eliminar Cuenta</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <div class="info-user flex-container">
+        <header class="header-info">
+        <h2 class="nameUser"></h2>
+        <p class="emailUser"></p>
+      </header>
+
+      <div id="tasks" class="flex-container">
+        <ul class="ul-tasks flex-container">
+          <li class="create-event">Crear Evento</li>
+          <li class="attending-events">Eventos reservados</li>
+          <li class="modify-profile">Modificar Perfil</li>
+          <li class="delete-user">Eliminar Usuario</li>
+        </ul>
+      </div>
+      </div>
+    </section>
   `;
 
-const getUserById = async () => {
-  const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
+    const divInfoUser = document.querySelector('.info-user');
+    const deleteUserBtn = document.querySelector('.delete-user');
+    deleteUserBtn.addEventListener('click', () => {
+      createModal({
+        parentNode: divInfoUser,
+        className: 'flex-container',
+        id: 'delete-user-modal'
+      });
 
-  const userData = await fetch(`http://localhost:3000/api/v1/users/${userId}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`
-    }
-  });
+      const modal = document.querySelector('#delete-user-modal');
+      modal.showModal(); //! Vamos por aquí
+    });
+  } else {
+    main.innerHTML = `
+    <section id="profile" class="flex-container">
+      <div class="div-img flex-container">
+        <img class="user-img"></img>
+      </div>
 
-  const user = await userData.json();
+      <div class="info-user flex-container">
+        <header class="header-info">
+        <h2 class="nameUser"></h2>
+        <p class="emailUser"></p>
+        </header>
 
-  const h2NameUser = document.querySelector('.nameUser');
-  const pEmailUser = document.querySelector('.emailUser');
-
-  const userImg = document.querySelector('.user-img');
-  userImg.src = user.img;
-
-  h2NameUser.textContent = user.nameUser;
-  pEmailUser.textContent = user.email;
-};
-
-const Profile = () => {
-  document.querySelector('main').innerHTML = profileTemplate();
-
-  createSpinner('Cargando tu perfil');
+      <div id="tasks" class="flex-container">
+        <ul class="ul-tasks flex-container">
+          <li class="create-event">Crear Evento</li>
+          <li class="attending-events">Eventos reservados</li>
+          <li class="modify-profile">Modificar Perfil</li>
+          <li class="delete-account">Eliminar Cuenta</li>
+        </ul>
+      </div>
+      </div>
+    </section>
+  `;
+  }
 
   getUserById();
 
@@ -106,7 +123,14 @@ const Profile = () => {
       }
     });
   });
+
   createSpinner('close');
+};
+
+const Profile = () => {
+  profileTemplate();
+
+  createSpinner('Cargando tu perfil');
 };
 
 export default Profile;
