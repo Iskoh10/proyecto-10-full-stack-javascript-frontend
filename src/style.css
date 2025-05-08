@@ -30,6 +30,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  border: 1px solid yellow;
 }
 
 a {
@@ -66,6 +67,7 @@ li {
 }
 
 #app {
+  position: relative;
   width: 80%;
   border: 2px solid red;
   margin: 4rem auto;
@@ -89,9 +91,10 @@ li {
 }
 
 main {
+  position: relative;
+
   border: 1px solid black;
   width: 90%;
-  min-height: 50svh;
 }
 
 /* Register, Login forms */
@@ -150,6 +153,8 @@ input[type='file'] {
 }
 
 .footer {
+  position: relative;
+  top: 80%;
   border: 1px solid blue;
   width: 100%;
   color: white;

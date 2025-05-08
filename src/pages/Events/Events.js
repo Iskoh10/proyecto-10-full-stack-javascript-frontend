@@ -7,11 +7,13 @@ const eventTemplate = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   return `
 <section id="events">
+<div class="welcome-container">
 ${
   user
     ? `<h3>Bienvenid@ ${user.name}</h3>`
     : `<h3>➡️ Registrate, por favor ⬅️</h3>`
 }
+</div>
 <ul id="events-container" class="flex-container"></ul>
 </section>
 `;
@@ -28,6 +30,24 @@ const Events = () => {
       resetPassword(token);
     }
   }, 0);
+
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (user) {
+    const welcomeContainer = document.querySelector('.welcome-container');
+    const select = document.createElement('select');
+    select.id = 'sort-by-date';
+    const optionDate = document.createElement('option');
+    optionDate.value = 'date';
+    optionDate.textContent = 'Por fecha';
+    const optionOther = document.createElement('option');
+
+    select.appendChild(optionDate);
+    welcomeContainer.appendChild(select);
+    console.log(welcomeContainer);
+
+    //! Hacer el select de ordenar eventos
+  }
 
   getEvents();
 

@@ -1,6 +1,6 @@
 #users-select {
   appearance: none;
-  width: 30%;
+  width: 70%;
   margin-top: 1rem;
   border: 1px solid blueviolet;
   border-radius: 3em;
@@ -18,8 +18,18 @@
   flex-direction: var(--flex-direction-column);
 }
 
-.btn-container {
+.user-to-del {
+  color: red;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.btn-container-admin {
   width: 30%;
   padding: 1rem;
   gap: 1rem;
+}
+
+.confirm-no-del-user-btn {
+  margin: 2%;
 }

@@ -74,6 +74,6 @@ button#close-reset {
 }
 
 .delete-yes-btn {
+  margin: 2%;
   align-self: center;
-  width: 25%;
 }

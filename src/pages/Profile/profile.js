@@ -22,10 +22,10 @@ const profileTemplate = () => {
       </div>
 
       <div class="info-user flex-container">
-        <header class="header-info">
+        <div class="header-info">
         <h2 class="nameUser"></h2>
         <p class="emailUser"></p>
-      </header>
+      </div>
 
       <div id="tasks" class="flex-container">
         <ul class="ul-tasks flex-container">
@@ -52,10 +52,10 @@ const profileTemplate = () => {
       </div>
 
       <div class="info-user flex-container">
-        <header class="header-info">
+        <div class="header-info">
         <h2 class="nameUser"></h2>
         <p class="emailUser"></p>
-        </header>
+        </div>
 
       <div id="tasks" class="flex-container">
         <ul class="ul-tasks flex-container">

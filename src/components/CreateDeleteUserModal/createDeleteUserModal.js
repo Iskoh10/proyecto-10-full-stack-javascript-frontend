@@ -3,6 +3,7 @@ import getAllUsers from '../../handlers/getAllUsers';
 import createButton from '../CreateButton/createButton';
 import createModal from '../CreateModal/createModal';
 import './createDeleteUserModal.css';
+import deleteUser from '../../handlers/deleteUser';
 
 const createDeleteUserModal = async () => {
   const divInfoUser = document.querySelector('.info-user');
@@ -21,69 +22,24 @@ const createDeleteUserModal = async () => {
     <h2>Eliminar Usuarios</h2>
     <label for="users-select">Selecciona al usuario que quieres eliminar</label>
     <select name="select" id="users-select">
+    <option value="" selected disabled>Selecciona un usuario</option>
     </select>
     </form>
   </div>`;
-
-  createModal({
-    parentNode: divInfoUser,
-    className: 'flex-container',
-    id: 'confirm-del-user-modal'
-  });
-
-  const modalCorfirm = document.querySelector('#confirm-del-user-modal');
-
-  modalCorfirm.innerHTML = `
-  <div class"modal-inner">
-  <h2>¿Deseas eliminar a este Usuario?</h2>
-  <p class="user-to-del"></p>
-  </div>
-  <div class="btn-container flex-container">
-  </div>
-  `;
-
-  const btnContainer = document.querySelector('.btn-container');
-
-  createButton({
-    parentNode: btnContainer,
-    text: 'Sí',
-    classNameType: 'primary',
-    className: 'confirm-yes-del-user-btn'
-  });
-
-  createButton({
-    parentNode: btnContainer,
-    text: 'No',
-    classNameType: 'secondary',
-    className: 'confirm-no-del-user-btn'
-  });
 
   const users = await getAllUsers();
   const select = document.querySelector('#users-select');
 
   users.forEach((user) => {
-    const option = document.createElement('option');
-    option.value = user._id;
-    option.textContent = user.nameUser;
-
     if (user.rol === 'admin') {
-      option.disabled = true;
+      return;
+    } else {
+      const option = document.createElement('option');
+      option.value = user._id;
+      option.textContent = user.nameUser;
+
+      select.appendChild(option);
     }
-
-    select.appendChild(option);
-  });
-
-  select.addEventListener('change', (e) => {
-    const selectedOption = e.target.options[e.target.selectedIndex];
-
-    modalCorfirm.showModal();
-    // deleteUser(selectedOption);
-
-    //! Añadir esto para que aparezca el nombre del usuario en el modal de confirmacion
-    // modalConfirm.dataset.username = selectedOption.textContent;
-    // modalConfirm.showModal();
-
-    // const username = modalConfirm.dataset.username;
   });
 
   const form = document.querySelector('#user-delete-form');
@@ -98,6 +54,63 @@ const createDeleteUserModal = async () => {
   const closeBtn = document.querySelector('#close-user-delete-modal-btn');
 
   closeBtn.addEventListener('click', () => {
+    modal.close();
+  });
+
+  createModal({
+    parentNode: divInfoUser,
+    className: 'flex-container',
+    id: 'confirm-del-user-modal'
+  });
+
+  const modalConfirm = document.querySelector('#confirm-del-user-modal');
+
+  modalConfirm.innerHTML = `
+  <div class="modal-inner">
+  <h2>¿Deseas eliminar a este Usuario?</h2>
+  <p class="user-to-del"></p>
+  </div>
+  <div class="btn-container-admin flex-container">
+  </div>
+  `;
+
+  select.addEventListener('change', (e) => {
+    const selectedOption = e.target.options[e.target.selectedIndex];
+
+    modalConfirm.dataset.value = selectedOption.value;
+
+    const usernameToDel = document.querySelector('.user-to-del');
+    usernameToDel.textContent = `🤝 ${selectedOption.textContent}`;
+
+    modalConfirm.showModal();
+  });
+
+  const btnContainer = document.querySelector('.btn-container-admin');
+
+  createButton({
+    parentNode: btnContainer,
+    text: 'Sí',
+    classNameType: 'primary',
+    className: 'confirm-yes-del-user-btn'
+  });
+
+  const yesBtn = document.querySelector('.confirm-yes-del-user-btn');
+  yesBtn.addEventListener('click', () => {
+    deleteUser(modalConfirm.dataset.value);
+    modalConfirm.close();
+    modal.close();
+  });
+
+  createButton({
+    parentNode: btnContainer,
+    text: 'No',
+    classNameType: 'secondary',
+    className: 'confirm-no-del-user-btn'
+  });
+
+  const noBtn = document.querySelector('.confirm-no-del-user-btn');
+  noBtn.addEventListener('click', () => {
+    modalConfirm.close();
     modal.close();
   });
 

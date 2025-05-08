@@ -25,11 +25,15 @@ const deleteAccount = async () => {
       localStorage.removeItem('user');
       document.querySelector('main').innerHTML = '';
       Events();
-      createMessage(`Tu cuenta fué eliminada, ${user.name}`);
+      createMessage(`Tu cuenta fue eliminada, ${user.name}`);
       return;
+    } else {
+      createSpinner('close');
+      createMessage('No se pudo eliminar tu cuenta', dataRes.message);
     }
   } catch (error) {
-    createMessage('Error al eliminar tu cuenta');
+    createSpinner('close');
+    createMessage('Error en la conexión a la red', error.message);
   }
 };
 

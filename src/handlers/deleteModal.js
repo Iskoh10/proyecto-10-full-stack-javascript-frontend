@@ -32,6 +32,7 @@ const modalDeleteAccount = () => {
   <div class="inner-confirm-delete-modal flex-container">
 <h2>¡ADVERTENCIA!</h2>
 <p>¿Estás a punto de eliminar tu cuenta?</p>
+<div class="btn-container flex-container"></div>
 </div>
   `;
 
@@ -66,15 +67,17 @@ const modalDeleteAccount = () => {
     '.inner-confirm-delete-modal'
   );
 
+  const btnContainer = document.querySelector('.btn-container');
+
   createButton({
-    parentNode: innerConfirmDelModal,
+    parentNode: btnContainer,
     text: 'Sí',
     classNameType: 'secondary',
     className: 'delete-yes-btn'
   });
 
   createButton({
-    parentNode: innerConfirmDelModal,
+    parentNode: btnContainer,
     text: 'No',
     classNameType: 'primary',
     className: 'delete-no-btn'
