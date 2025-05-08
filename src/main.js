@@ -38,7 +38,7 @@ header.appendChild(divNav);
 
 app.appendChild(header);
 
-createToggle(document.body);
+createToggle(app);
 
 app.appendChild(main);
 app.appendChild(footer);

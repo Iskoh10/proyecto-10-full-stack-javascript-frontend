@@ -2,6 +2,7 @@ import './events.css';
 import resetPassword from '../../components/ResetPassword/resetPassword';
 import getEvents from '../../handlers/getEvents';
 import createFooter from '../../components/Footer/footer';
+import createSelectSort from '../../components/CreateSelectSort/createSelectSort';
 
 const eventTemplate = () => {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -31,23 +32,7 @@ const Events = () => {
     }
   }, 0);
 
-  const user = JSON.parse(localStorage.getItem('user'));
-
-  if (user) {
-    const welcomeContainer = document.querySelector('.welcome-container');
-    const select = document.createElement('select');
-    select.id = 'sort-by-date';
-    const optionDate = document.createElement('option');
-    optionDate.value = 'date';
-    optionDate.textContent = 'Por fecha';
-    const optionOther = document.createElement('option');
-
-    select.appendChild(optionDate);
-    welcomeContainer.appendChild(select);
-    console.log(welcomeContainer);
-
-    //! Hacer el select de ordenar eventos
-  }
+  createSelectSort();
 
   getEvents();
 

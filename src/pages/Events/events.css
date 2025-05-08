@@ -6,10 +6,6 @@
   margin: 1em auto;
 }
 
-#sort-by-date {
-  padding: 1rem;
-}
-
 #events-container {
   width: 100%;
   margin: 0 auto;
@@ -63,6 +59,7 @@ div.data {
   width: 60%;
   flex-direction: var(--flex-direction-column);
   padding: 1rem;
+  height: 90%;
 }
 
 .event-info {
