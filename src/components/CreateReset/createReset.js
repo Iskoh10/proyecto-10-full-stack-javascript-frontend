@@ -11,7 +11,6 @@ const createModalReset = () => {
 
   createModal({
     parentNode: mainContent,
-    className: 'flex-container',
     id: 'reset-modal'
   });
 
@@ -36,10 +35,7 @@ const createModalReset = () => {
     className: 'update-pass-btn'
   });
 
-  const updatePassBtn = document.querySelector('.update-pass-btn');
-  updatePassBtn.addEventListener('click', () => {
-    console.log('Cambiar');
-  });
+  document.querySelector('.footer').innerHTML = '';
 };
 
 export default createModalReset;

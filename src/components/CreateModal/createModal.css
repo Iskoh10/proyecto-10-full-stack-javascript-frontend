@@ -8,7 +8,6 @@
   opacity: 0;
   transform: translateY(50%);
   transition: opacity 0.5s, transform 0.5s;
-  transition-behavior: allow-discrete;
 }
 
 .modal::backdrop {

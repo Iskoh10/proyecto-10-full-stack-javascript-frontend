@@ -1,9 +1,7 @@
 import './login.css';
 import loginSubmit from '../../handlers/loginHandler';
 import validateForm from '../../utils/validateForm';
-import sendEmail from '../../components/ForgotPassword/forgotPassword';
 import createButton from '../../components/CreateButton/createButton';
-import createModal from '../../components/CreateModal/createModal';
 import createRecover from '../../components/CreateRecover/createRecover';
 
 const loginTemplate = () => `

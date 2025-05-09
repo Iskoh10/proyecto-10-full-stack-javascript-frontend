@@ -8,7 +8,6 @@ const modProfile = () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'mod-profile-modal'
   });
 

@@ -1,8 +1,4 @@
-.modal-inner {
-  flex-direction: var(--flex-direction-column);
-  width: 100%;
-}
-
+.modal-inner,
 #attending-events,
 .li-event-user {
   flex-direction: var(--flex-direction-column);

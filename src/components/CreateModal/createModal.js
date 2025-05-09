@@ -2,7 +2,7 @@ import './createModal.css';
 
 const createModal = ({ parentNode, className = '', id = '' }) => {
   const dialog = document.createElement('dialog');
-  dialog.classList.add('modal');
+  dialog.classList.add('modal', 'flex-container');
 
   if (className) {
     dialog.classList.add(...className.split(' '));

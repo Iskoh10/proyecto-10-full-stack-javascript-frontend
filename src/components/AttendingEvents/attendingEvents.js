@@ -7,7 +7,6 @@ const attendingEvents = () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'events-modal'
   });
 

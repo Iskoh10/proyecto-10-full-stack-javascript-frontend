@@ -40,7 +40,3 @@ const Events = () => {
 };
 
 export default Events;
-
-//!  Implementar que el fondo del dia sea verde si la fecha es hoy o futuro y si es un evento pasado que el fondo sea rojizo y se pierda el hover del evento.
-
-//           //! Esto es mejor en cada evento??? o teniendo la lista de eventos modificar/eliminar eventos solo lo tendrá el admin y será en la lista de eventos

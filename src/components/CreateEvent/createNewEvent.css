@@ -29,6 +29,10 @@ textarea {
   min-height: 2em;
 }
 
+#eventBtnGo {
+  margin-top: 2rem;
+}
+
 #close-event-modal {
   width: 30%;
   align-self: end;

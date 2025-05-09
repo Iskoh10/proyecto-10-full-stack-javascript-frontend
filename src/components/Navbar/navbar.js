@@ -1,13 +1,12 @@
+import './navbar.css';
 import Events from '../../pages/Events/Events';
 import Login from '../../pages/Login/Login';
 import Profile from '../../pages/Profile/profile';
 import Register from '../../pages/Register/Register';
 import createMessage from '../Message/message';
-import './navbar.css';
 
 const createNavbar = () => {
   const divNav = document.querySelector('.div-nav');
-  if (!divNav) return console.error('No se encontró el divNav');
 
   let navBar = document.querySelector('.navBar');
 

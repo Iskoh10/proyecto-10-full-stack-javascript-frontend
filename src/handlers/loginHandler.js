@@ -51,5 +51,3 @@ const loginSubmit = async (emailParam, passwordParam) => {
 };
 
 export default loginSubmit;
-
-//! Diferenciar el error de login por contraseña o email, y porque no está registrado

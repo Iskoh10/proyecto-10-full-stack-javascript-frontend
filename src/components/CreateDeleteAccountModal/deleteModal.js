@@ -8,7 +8,6 @@ const modalDeleteAccount = () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'delete-modal'
   });
 
@@ -23,7 +22,6 @@ const modalDeleteAccount = () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'confirm-delete-modal'
   });
 

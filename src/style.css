@@ -1,3 +1,4 @@
+/* Custom properties */
 :root {
   --display-flex: flex;
   --flex-direction-column: column;
@@ -23,7 +24,6 @@
   --highlight-dark: #f29ca1;
   --shadow-dark: #748fc7;
 }
-/* Custom properties */
 
 * {
   margin: 0;

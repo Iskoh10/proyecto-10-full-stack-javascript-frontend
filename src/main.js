@@ -32,14 +32,13 @@ const footer = document.createElement('footer');
 footer.classList.add('footer', 'flex-container');
 
 divLogo.appendChild(logoImg);
-header.appendChild(divLogo);
 divNav.appendChild(title);
+header.appendChild(divLogo);
 header.appendChild(divNav);
-
-app.appendChild(header);
 
 createToggle(app);
 
+app.appendChild(header);
 app.appendChild(main);
 app.appendChild(footer);
 
@@ -52,4 +51,5 @@ Events();
 // window.addEventListener('beforeunload', () => {
 //   localStorage.removeItem('user');
 // });
-//! Revisar el cambio de color de letras
+
+//! Crear handlerFetch para unificar los fetch

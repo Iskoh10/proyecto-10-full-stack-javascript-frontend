@@ -11,6 +11,7 @@ const createButton = ({
   button.textContent = text;
   button.className = 'flex-container';
   button.classList.add(classNameType);
+
   if (className) {
     button.classList.add(className);
   }
@@ -18,6 +19,7 @@ const createButton = ({
   if (id) {
     button.id = id;
   }
+
   parentNode.appendChild(button);
   return button;
 };

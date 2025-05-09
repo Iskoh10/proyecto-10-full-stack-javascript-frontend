@@ -7,7 +7,6 @@ const createNewEvent = () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'event-modal'
   });
 
@@ -38,6 +37,7 @@ const createNewEvent = () => {
     classNameType: 'primary',
     id: 'eventBtnGo'
   });
+
   createButton({
     parentNode: eventForm,
     text: 'Cancelar',

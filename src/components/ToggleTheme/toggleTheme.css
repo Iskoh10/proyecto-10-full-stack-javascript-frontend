@@ -1,18 +1,18 @@
 body {
   background-color: #f5f8f8;
   font-family: Arial, Helvetica, sans-serif;
-  color: #a5abb0;
+  color: black;
   transition: background-color 0.5s ease;
 }
 
 body.night {
   background-color: #3f3f4c;
+  color: #a5abb0;
 }
 
 .toggle-container {
-  position: absolute;
-  left: 3%;
-  top: 3%;
+  position: relative;
+  right: 47%;
   width: 10px;
   height: 10px;
   z-index: 0;

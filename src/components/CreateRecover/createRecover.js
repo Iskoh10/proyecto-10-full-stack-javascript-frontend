@@ -8,7 +8,6 @@ const createRecover = () => {
 
   createModal({
     parentNode: loginSection,
-    className: 'flex-container',
     id: 'recover-modal'
   });
 

@@ -1,7 +1,8 @@
+import './eventCard.css';
 import getEventDetails from '../../handlers/getEventById';
 import createButton from '../CreateButton/createButton';
 import createModal from '../CreateModal/createModal';
-import './eventCard.css';
+
 const eventCard = async (eventId) => {
   const event = await getEventDetails(eventId);
 
@@ -15,7 +16,6 @@ const eventCard = async (eventId) => {
 
   createModal({
     parentNode: sectionEvents,
-    className: 'flex-container',
     id: 'event-details'
   });
 

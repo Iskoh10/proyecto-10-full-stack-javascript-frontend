@@ -8,7 +8,6 @@ const createChangeImgModal = () => {
 
   createModal({
     parentNode: sectionProfile,
-    className: 'flex-container',
     id: 'changeImg-modal'
   });
 

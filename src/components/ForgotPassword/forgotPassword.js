@@ -17,9 +17,9 @@ const sendEmail = () => {
     }
 
     modal.close();
-    createSpinner('Te estamos enviando un correo...');
 
     try {
+      createSpinner('Te estamos enviando un correo...');
       const response = await fetch(
         'http://localhost:3000/api/auth/forgot-password',
         {
@@ -39,11 +39,14 @@ const sendEmail = () => {
         createMessage('Correo de recuperación enviado!');
       } else {
         createSpinner('close');
-        createSpinner('Algo va mal');
+        createMessage(
+          'Algo pasa, email incorrecto o usuario no registrado',
+          result.message
+        );
       }
     } catch (error) {
-      console.error(error);
-      alert('❌ Error de conexión con el servidor');
+      createSpinner('close');
+      createMessage('❌ Error de conexión con el servidor', error.message);
     }
   });
 };

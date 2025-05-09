@@ -10,7 +10,6 @@ const createDeleteUserModal = async () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'delete-user-modal'
   });
 
@@ -59,7 +58,6 @@ const createDeleteUserModal = async () => {
 
   createModal({
     parentNode: divInfoUser,
-    className: 'flex-container',
     id: 'confirm-del-user-modal'
   });
 
