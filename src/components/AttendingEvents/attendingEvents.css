@@ -1,0 +1,41 @@
+.modal-inner {
+  flex-direction: var(--flex-direction-column);
+  width: 100%;
+}
+
+#attending-events,
+.li-event-user {
+  flex-direction: var(--flex-direction-column);
+  width: 100%;
+}
+
+.li-event-user {
+  --c1: #0f8dd4;
+  --c2: #ecb6c1;
+  --c3: #eb822f;
+  --c4: #8f29d0;
+  --c5: #34d653;
+  --c6: #d7de2d;
+}
+
+.li-event-user {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  background: radial-gradient(
+    circle at top left,
+    var(--c1) 0%,
+    var(--c2) 18%,
+    var(--c3) 36%,
+    var(--c4) 50%,
+    var(--c5) 72%,
+    var(--c6) 100%
+  );
+  color: #333;
+}
+
+.close-events-btn {
+  width: 25%;
+}

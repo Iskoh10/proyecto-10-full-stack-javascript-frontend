@@ -1,3 +1,4 @@
+import './attendingEvents.css';
 import createButton from '../CreateButton/createButton';
 import createModal from '../CreateModal/createModal';
 

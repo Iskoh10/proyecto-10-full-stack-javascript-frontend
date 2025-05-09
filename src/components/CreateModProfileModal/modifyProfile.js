@@ -1,6 +1,7 @@
-import createButton from '../components/CreateButton/createButton';
-import createModal from '../components/CreateModal/createModal';
-import modProfilePost from './modProfilePost';
+import './modifyProfile.css';
+import createButton from '../CreateButton/createButton';
+import createModal from '../CreateModal/createModal';
+import modProfilePost from '../../handlers/modProfilePost';
 
 const modProfile = () => {
   const divInfoUser = document.querySelector('.info-user');

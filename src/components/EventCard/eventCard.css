@@ -2,15 +2,6 @@
   width: 100%;
 }
 
-.modal-content {
-  flex-direction: var(--flex-direction-column);
-  width: 100%;
-}
-
-.modal-content > h2 {
-  margin-bottom: 1rem;
-}
-
 p.description {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   line-height: 1.6;

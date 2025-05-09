@@ -1,3 +1,4 @@
+import './createChangeImgModal.css';
 import changeImg from '../../handlers/changeImg';
 import createButton from '../CreateButton/createButton';
 import createModal from '../CreateModal/createModal';

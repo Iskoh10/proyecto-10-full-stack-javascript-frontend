@@ -2,21 +2,19 @@ import './profile.css';
 import createNewEvent from '../../components/CreateEvent/createNewEvent';
 import createSpinner from '../../components/Loader/loader';
 import attendingEvents from '../../components/AttendingEvents/attendingEvents';
-import modalDeleteAccount from '../../handlers/deleteModal';
-import getEventsUser from '../../handlers/getEventsUser';
-import modProfile from '../../handlers/modifyProfile';
-import CreateEvent from '../../handlers/postEvent';
+import modalDeleteAccount from '../../components/CreateDeleteAccountModal/deleteModal';
+import modProfile from '../../components/CreateModProfileModal/modifyProfile';
 import createChangeImgModal from '../../components/CreateChangeImgModal/createChangeImgModal';
 import getUserById from '../../handlers/getUserById';
-import createDeleteUserModal from '../../components/CreateDeleteUserModal/createDeleteUserModal';
+import attachProfileListeners from '../../handlers/attachProfileListeners';
 
 const profileTemplate = () => {
-  const main = document.querySelector('main');
   const user = JSON.parse(localStorage.getItem('user'));
 
-  if (user.rol === 'admin') {
-    main.innerHTML = `
-    <section id="profile" class="flex-container">
+  return `
+${
+  user.rol === 'admih'
+    ? `<section id="profile" class="flex-container">
       <div class="div-img flex-container">
         <img class="user-img"></img>
       </div>
@@ -36,17 +34,8 @@ const profileTemplate = () => {
         </ul>
       </div>
       </div>
-    </section>
-  `;
-
-    const deleteUserBtn = document.querySelector('.delete-user');
-
-    deleteUserBtn.addEventListener('click', () => {
-      createDeleteUserModal();
-    });
-  } else {
-    main.innerHTML = `
-    <section id="profile" class="flex-container">
+    </section>`
+    : `<section id="profile" class="flex-container">
       <div class="div-img flex-container">
         <img class="user-img"></img>
       </div>
@@ -66,9 +55,14 @@ const profileTemplate = () => {
         </ul>
       </div>
       </div>
-    </section>
-  `;
-  }
+    </section>`
+}`;
+};
+
+const Profile = () => {
+  document.querySelector('main').innerHTML = profileTemplate();
+
+  createSpinner('Cargando tu perfil');
 
   getUserById();
 
@@ -82,48 +76,7 @@ const profileTemplate = () => {
 
   modalDeleteAccount();
 
-  const liItemsTask = document.querySelectorAll('.ul-tasks li');
-
-  liItemsTask.forEach((li) => {
-    const className = li.classList[0];
-
-    li.addEventListener('click', (e) => {
-      switch (className) {
-        case 'create-event':
-          const eventModal = document.querySelector('#event-modal');
-          CreateEvent();
-          eventModal.showModal();
-          break;
-
-        case 'attending-events':
-          const attendingEventModal = document.querySelector('#events-modal');
-          attendingEventModal.showModal();
-          getEventsUser();
-          break;
-
-        case 'modify-profile':
-          const modProfileModal = document.querySelector('#mod-profile-modal');
-          modProfileModal.showModal();
-          break;
-
-        case 'delete-account':
-          const deleteModal = document.querySelector('#delete-modal');
-          deleteModal.showModal();
-          break;
-
-        default:
-          break;
-      }
-    });
-  });
-
-  createSpinner('close');
-};
-
-const Profile = () => {
-  profileTemplate();
-
-  createSpinner('Cargando tu perfil');
+  attachProfileListeners();
 };
 
 export default Profile;

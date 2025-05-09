@@ -1,7 +1,7 @@
 .modal {
   inset: 0;
   margin: auto;
-  width: min(45%, 1000px);
+  width: min(60vw, 1000px);
   padding: 3rem 1.5rem;
   border-radius: 10px;
   text-align: center;

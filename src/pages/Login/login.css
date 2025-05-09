@@ -24,10 +24,6 @@ button#recover-password:hover {
   margin-top: 1.5rem;
 }
 
-#confirm-delete-modal > h2 {
-  color: red;
-}
-
 button#close-reset,
 .leave-attend {
   all: unset;
@@ -67,13 +63,4 @@ button#close-reset:hover,
 
 button#close-reset {
   padding: 0.5rem 0;
-}
-
-.close-delete-btn {
-  width: 30%;
-}
-
-.delete-yes-btn {
-  margin: 2%;
-  align-self: center;
 }

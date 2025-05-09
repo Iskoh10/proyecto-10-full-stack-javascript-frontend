@@ -1,12 +1,3 @@
-.li-event-user {
-  --c1: #0f8dd4;
-  --c2: #ecb6c1;
-  --c3: #eb822f;
-  --c4: #8f29d0;
-  --c5: #34d653;
-  --c6: #d7de2d;
-}
-
 #profile {
   width: 100%;
   justify-content: flex-start;
@@ -25,25 +16,6 @@
   object-fit: contain;
 }
 
-#changeImg-form > h2 {
-  margin-bottom: 10%;
-}
-
-#makeChangeImg {
-  margin-top: 1rem;
-  width: 100%;
-}
-
-#close-changeImg {
-  width: 30%;
-}
-
-.mod-profile-btn {
-  margin-top: 1rem;
-  width: 90%;
-  align-self: center;
-}
-
 .header-info {
   width: 100%;
   padding: 1rem;
@@ -57,52 +29,6 @@
   height: 100%;
   align-items: center;
   justify-content: flex-start;
-}
-
-#eventBtnGo {
-  margin-top: 2rem;
-}
-
-.modal-container {
-  width: 100%;
-}
-
-.modal-inner {
-  flex-direction: var(--flex-direction-column);
-  min-width: 100%;
-}
-
-.close-events-btn {
-  width: 25%;
-}
-
-.delete-modal-inner {
-  flex-direction: var(--flex-direction-column);
-}
-
-.delete-modal-inner > h2,
-.inner-confirm-delete-modal > h2 {
-  color: red;
-  margin-bottom: 1rem;
-}
-
-.inner-confirm-delete-modal {
-  flex-direction: var(--flex-direction-column);
-}
-
-.delete-account-btn {
-  margin-top: 1rem;
-}
-
-.delete-no-btn {
-  align-self: end;
-}
-
-.btn-container {
-  width: 70%;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding: 1rem;
 }
 
 #tasks {
@@ -130,51 +56,6 @@
 
 .ul-tasks li:active {
   transform: scale(1.05);
-}
-
-#event-form label {
-  margin-top: 8%;
-  margin-bottom: 2%;
-}
-
-#event-title {
-  padding: 2%;
-  font-size: 1rem;
-}
-
-#event-description {
-  padding: 2%;
-  resize: none;
-  overflow: hidden;
-}
-
-textarea {
-  overflow: hidden;
-  height: auto;
-  min-height: 2em;
-}
-
-#attending-events,
-.li-event-user {
-  flex-direction: var(--flex-direction-column);
-}
-
-.li-event-user {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 10px;
-  width: 100%;
-  background: radial-gradient(
-    circle at top left,
-    var(--c1) 0%,
-    var(--c2) 18%,
-    var(--c3) 36%,
-    var(--c4) 50%,
-    var(--c5) 72%,
-    var(--c6) 100%
-  );
-  color: #333;
 }
 
 .info-event-resume {

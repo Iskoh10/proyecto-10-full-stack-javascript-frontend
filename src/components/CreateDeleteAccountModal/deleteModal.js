@@ -1,6 +1,7 @@
-import createButton from '../components/CreateButton/createButton';
-import createModal from '../components/CreateModal/createModal';
-import deleteAccount from './deleteAccount';
+import './deleteModal.css';
+import createButton from '../CreateButton/createButton';
+import createModal from '../CreateModal/createModal';
+import deleteAccount from '../../handlers/deleteAccount';
 
 const modalDeleteAccount = () => {
   const divInfoUser = document.querySelector('.info-user');
@@ -30,9 +31,9 @@ const modalDeleteAccount = () => {
 
   confirmModal.innerHTML = `
   <div class="inner-confirm-delete-modal flex-container">
-<h2>¡ADVERTENCIA!</h2>
-<p>¿Estás a punto de eliminar tu cuenta?</p>
-<div class="btn-container flex-container"></div>
+    <h2>¡ADVERTENCIA!</h2>
+    <p>¿Estás a punto de eliminar tu cuenta?</p>
+    <div class="btn-container flex-container"></div>
 </div>
   `;
 
@@ -62,10 +63,6 @@ const modalDeleteAccount = () => {
   closeDeleteBtn.addEventListener('click', () => {
     modal.close();
   });
-
-  const innerConfirmDelModal = document.querySelector(
-    '.inner-confirm-delete-modal'
-  );
 
   const btnContainer = document.querySelector('.btn-container');
 

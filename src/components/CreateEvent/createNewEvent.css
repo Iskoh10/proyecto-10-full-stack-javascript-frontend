@@ -1,5 +1,32 @@
-#event-form {
+.modal-content {
+  flex-direction: var(--flex-direction-column);
   width: 100%;
+}
+
+.modal-content > h2 {
+  margin-bottom: 1rem;
+}
+
+#event-form label {
+  margin-top: 8%;
+  margin-bottom: 2%;
+}
+
+#event-title {
+  padding: 2%;
+  font-size: 1rem;
+}
+
+#event-description {
+  padding: 2%;
+  resize: none;
+  overflow: hidden;
+}
+
+textarea {
+  overflow: hidden;
+  height: auto;
+  min-height: 2em;
 }
 
 #close-event-modal {

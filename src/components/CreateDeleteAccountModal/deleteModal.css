@@ -1,0 +1,39 @@
+.delete-modal-inner {
+  width: 100%;
+  flex-direction: var(--flex-direction-column);
+}
+
+.delete-modal-inner > h2,
+.inner-confirm-delete-modal > h2 {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.delete-account-btn {
+  margin-top: 2rem;
+}
+
+.close-delete-btn {
+  width: 30%;
+}
+
+.inner-confirm-delete-modal {
+  flex-direction: var(--flex-direction-column);
+}
+
+#confirm-delete-modal > h2 {
+  color: red;
+}
+
+.btn-container {
+  width: 70%;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.delete-yes-btn {
+  margin-top: 0;
+  margin: 2%;
+}
