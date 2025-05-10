@@ -3,7 +3,7 @@
 }
 
 #makeChangeImg {
-  margin-top: 1rem;
+  margin-top: var(--margin-1);
   width: 100%;
 }
 

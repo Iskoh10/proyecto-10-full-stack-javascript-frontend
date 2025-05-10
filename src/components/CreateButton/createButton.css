@@ -1,14 +1,15 @@
+/* Custom properties */
 .primary {
   --color: #fafafa;
   --hover: #155192;
   --color-bg: #007bff;
-  --fc-hover: #121212;
+  --fc-hover: var(--bg-dark-color);
 }
 
 .secondary {
-  --color: #121212;
+  --color: var(--bg-dark-color);
   --hover: #ff7fb0;
-  --fc-hover: #fafafa;
+  --fc-hover: var(--bg-light-color);
 }
 
 button {
@@ -25,8 +26,8 @@ button:hover {
   color: var(--color);
   margin: 2%;
   font-size: 1rem;
-  font-weight: 500;
-  border-radius: 10px;
+  font-weight: var(--fw-600);
+  border-radius: var(--br-1rem);
   padding: 6px 12px;
   cursor: pointer;
 }
@@ -46,8 +47,8 @@ button:hover {
 .secondary {
   color: var(--color);
   border: 2px solid var(--color);
-  border-radius: 1rem;
-  margin-top: 1rem;
+  border-radius: var(--br-1rem);
+  margin-top: var(--margin-1);
   padding: 0.25rem 0.5rem;
   width: 5rem;
   font-size: 1rem;

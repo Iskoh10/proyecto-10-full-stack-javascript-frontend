@@ -2,7 +2,7 @@
   width: 100%;
   flex-direction: var(--flex-direction-column);
 }
-
+/*! Vamos por aqui */
 .delete-modal-inner > h2,
 .inner-confirm-delete-modal > h2 {
   color: red;

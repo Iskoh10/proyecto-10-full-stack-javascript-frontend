@@ -1,10 +1,4 @@
-.modal-inner,
-#attending-events,
-.li-event-user {
-  flex-direction: var(--flex-direction-column);
-  width: 100%;
-}
-
+/* Custom properties */
 .li-event-user {
   --c1: #0f8dd4;
   --c2: #ecb6c1;
@@ -14,11 +8,18 @@
   --c6: #d7de2d;
 }
 
+.modal-inner,
+#attending-events,
 .li-event-user {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 10px;
+  flex-direction: var(--flex-direction-column);
+  width: 100%;
+}
+
+.li-event-user {
+  border: var(--border-dark);
+  padding: var(--padding-1rem);
+  margin: var(--margin-1);
+  border-radius: var(--br-1rem);
   width: 100%;
   background: radial-gradient(
     circle at top left,
@@ -29,7 +30,7 @@
     var(--c5) 72%,
     var(--c6) 100%
   );
-  color: #333;
+  color: var(--bg-dark-color);
 }
 
 .close-events-btn {
