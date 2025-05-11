@@ -1,7 +1,7 @@
 import createDeleteUserModal from '../components/CreateDeleteUserModal/createDeleteUserModal';
 import createSpinner from '../components/Loader/loader';
 import getEventsUser from './getEventsUser';
-import CreateEvent from './postEvent';
+import createEvent from './postEvent';
 
 const attachProfileListeners = () => {
   const deleteUserBtn = document.querySelector('.delete-user');
@@ -20,7 +20,7 @@ const attachProfileListeners = () => {
       switch (className) {
         case 'create-event':
           const eventModal = document.querySelector('#event-modal');
-          CreateEvent();
+          createEvent();
           eventModal.showModal();
           break;
 

@@ -1,5 +1,6 @@
 /* Custom properties */
 :root {
+  /*! Organizar las custom properties */
   /* Display */
   --display-flex: flex;
   --flex-direction-column: column;
@@ -21,6 +22,10 @@
   --bg-form-color: var(--bg-light-color);
   --bg-events-resume-color: #a0c1c9;
   --bg-events-hover-color: #85d2e5;
+  --bg-attend-btn-color: #007bff;
+  --bg-attend-btn-color-hover: #0056b3;
+  --bg-attend-btn-color-active: #003d80;
+  --bg-message-modal: #d3f1d3;
 
   --fc-light-mode: var(--bg-dark-color);
   --fc-dark-mode: #a5abb0;
@@ -74,22 +79,8 @@
   --bs-toggle: 0 0 0 0 #f5f8f8, 0 0 0 3px #a5abb0, 0 0 0 35px #f5f8f8;
   --bs-events-resume-color: 2px 2px 6px rgba(0, 0, 0, 0.2);
   --bs-events-date: 2px 2px 6px rgba(0, 0, 0, 0.2);
-
-  --primary-bg: #139c9c;
-  --accent-top: #064b4a;
-  --accent-bottom: #ad8632;
-  --text-color: #000000;
-  --brand-light: #139c9c;
-  --highlight-light: #064b4a;
-  --shadow-light: #ad8632;
-
-  --primary-bg: #eb5959;
-  --accent-top: #f29ca1;
-  --accent-bottom: #748fc7;
-  --text-color: #ffffff;
-  --brand-dark: #eb5959;
-  --highlight-dark: #f29ca1;
-  --shadow-dark: #748fc7;
+  --bs-attend-btn: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --bs-attend-btn-hover: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 * {

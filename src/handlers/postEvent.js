@@ -4,7 +4,7 @@ import Events from '../pages/Events/Events';
 
 let listenerExist = false;
 
-const CreateEvent = async () => {
+const createEvent = async () => {
   const createEventBtn = document.querySelector('#eventBtnGo');
   if (listenerExist) return;
 
@@ -46,20 +46,21 @@ const CreateEvent = async () => {
         body: formData
       });
 
+      const dataRes = await res.json();
+
       if (res.ok) {
         createSpinner('close');
         Events();
         createMessage('Evento Creado con éxito');
       } else {
-        const errorData = await res.json();
         createSpinner('close');
-        createMessage('Error al publicar el nuevo Evento:', errorData);
+        createMessage('Error al publicar el nuevo Evento:', dataRes.message);
       }
     } catch (error) {
       createSpinner('close');
-      createMessage(`Error en la conexión: ${error.message}`);
+      createMessage(`Error en la conexión: ${error}`);
     }
   });
 };
 
-export default CreateEvent;
+export default createEvent;

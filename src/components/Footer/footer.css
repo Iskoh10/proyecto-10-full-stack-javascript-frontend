@@ -1,6 +1,6 @@
 .footer {
   margin-top: auto;
-  border: 1px solid rgb(27, 235, 79);
+  padding: var(--padding-1rem) 2rem;
   width: 100%;
   color: var(--bg-light-color);
   background: radial-gradient(
@@ -46,6 +46,7 @@
 }
 
 .who-we-are p {
+  width: 80%;
   text-align: start;
   line-height: 1.6;
   margin: var(--margin-1) 0;
@@ -71,7 +72,7 @@
   border: var(--border-light);
   border-radius: var(--br-1rem);
   cursor: pointer;
-  transition: background-color 0.2s, border 0.2s ease-in-out;
+  transition: background-color 0.2s ease, border 0.2s ease-in-out;
 }
 
 .logo-container img {
@@ -144,6 +145,7 @@
   padding: var(--padding-1rem);
   background-color: var(--bg-light-color);
   width: 100%;
+  margin-top: var(--margin-1);
 }
 
 .ul-legality {

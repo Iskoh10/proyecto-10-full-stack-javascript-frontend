@@ -1,3 +1,5 @@
+import createMessage from '../components/Message/message';
+
 const leaveEvent = async (eventId) => {
   const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
 
@@ -17,10 +19,12 @@ const leaveEvent = async (eventId) => {
       }
     );
 
+    const dataRes = response.json();
+
     if (response.ok) {
-      console.log('Asistente eliminado del evento');
+      createMessage('Has sido eliminado del evento correctamente');
     } else {
-      console.error('Error al eliminar al asistente del evento');
+      createMessage('Error al eliminarte del evento', dataRes.message);
     }
   } catch (error) {
     console.log('Error inesperado', error);

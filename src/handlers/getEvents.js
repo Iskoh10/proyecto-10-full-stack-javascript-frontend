@@ -1,13 +1,18 @@
 import createButton from '../components/CreateButton/createButton';
 import eventCard from '../components/EventCard/eventCard';
 import createSpinner from '../components/Loader/loader';
+import apiRequest from './apiRequest';
 import deleteEvent from './deleteEvent';
 import attachEventListeners from './eventHandlers';
 
 const getEvents = async () => {
   createSpinner('Cargando Eventos');
-  const eventsData = await fetch('http://localhost:3000/api/v1/events');
-  const events = await eventsData.json();
+
+  const response = await apiRequest('GET', 'v1/events');
+  // const eventsData = await fetch('http://localhost:3000/api/v1/events');
+
+  const events = await response.json();
+
   const eventsContainer = document.querySelector('#events-container');
 
   for (const event of events) {
@@ -51,7 +56,6 @@ const getEvents = async () => {
       <div class="event-info flex-container">
       <p class="date">${formattedDate}</p>
       <p class="location">${event.location}</p>
-      <p class="quien">Soy Admin</p>
       </div>
       </div>
       `;

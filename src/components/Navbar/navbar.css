@@ -8,7 +8,7 @@
   gap: var(--gap-1);
   z-index: 1;
   justify-content: var(--justify-content-start);
-  border: 1px solid var(--warning-color);
+  border: 1px solid var(--bg-night-toggle);
   border-radius: var(--br-1rem);
   background-color: var(--bg-light-color);
 }

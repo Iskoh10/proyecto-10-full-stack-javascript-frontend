@@ -1,7 +1,7 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
 
-const updatePassword = async (token) => {
+const updatePassword = async (tokenUrl) => {
   const newPassword = document.querySelector('#new-password');
   const reNewPassword = document.querySelector('#renew-password');
   const resetModal = document.querySelector('#reset-modal');
@@ -11,7 +11,7 @@ const updatePassword = async (token) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/auth/reset-password/${token}`,
+        `http://localhost:3000/api/auth/reset-password/${tokenUrl}`,
         {
           method: 'POST',
           headers: {

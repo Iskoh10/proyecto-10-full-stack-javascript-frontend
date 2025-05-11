@@ -28,37 +28,37 @@ button#close-reset,
 .leave-attend {
   all: unset;
   border: 2px solid black;
-  border-radius: 1rem;
-  margin-top: 1rem;
+  border-radius: var(--br-1rem);
+  margin-top: var(--margin-1);
   width: 50%;
-  align-self: end;
+  align-self: var(--align-self);
   cursor: pointer;
   transition: transform 0.5s ease;
 }
 
 .leave-attend {
   width: 70%;
-  background-color: white;
+  background-color: var(--bg-light-color);
 }
 
 button#close-reset:hover,
 .leave-attend:hover {
-  background-color: white;
+  background-color: var(--bg-light-color);
   transform: scale(1.05);
 }
 
 #new-password {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: var(--margin-1);
+  margin-bottom: var(--margin-1);
 }
 
 .update-pass-btn {
-  margin-top: 2rem;
+  margin-top: var(--margin-2);
 }
 
 .close-pass-btn {
   width: 25%;
-  align-items: center;
+  align-items: var(--align-items-center);
 }
 
 button#close-reset {

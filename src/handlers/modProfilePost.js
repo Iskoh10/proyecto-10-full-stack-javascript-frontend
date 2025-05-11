@@ -9,7 +9,6 @@ const modProfilePost = async () => {
   const inputRePassword = document.querySelector('#mod-repeat-password');
 
   if (inputPassword.value !== inputRePassword.value) {
-    console.log('No coinciden');
     labelRePassword.style.color = 'red';
     createMessage('Las contraseñas no coinciden');
   } else {
@@ -53,10 +52,10 @@ const modProfilePost = async () => {
         Profile();
         createMessage('Perfil Actualizado');
       } else {
-        createMessage('Error al actualizar el Perfil');
+        createMessage('Error al actualizar el Perfil', userData.message);
       }
     } catch (error) {
-      createMessage('Error en la Conexión');
+      createMessage('Error en la Conexión', error);
     }
   }
 };

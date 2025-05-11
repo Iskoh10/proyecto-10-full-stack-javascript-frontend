@@ -33,7 +33,6 @@ const renderSortedEvents = (sortedEvents) => {
       <div class="event-info flex-container">
       <p class="date">${formattedDate}</p>
       <p class="location">${event.location}</p>
-      <p class="quien">Soy Admin</p>
       </div>
       </div>
       `;

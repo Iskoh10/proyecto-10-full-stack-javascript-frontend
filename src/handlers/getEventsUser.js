@@ -2,12 +2,12 @@ import createMessage from '../components/Message/message';
 import createSpinner from '../components/Loader/loader';
 
 const getEventsUser = async () => {
-  const { id, token } = JSON.parse(localStorage.getItem('user'));
+  const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
 
   try {
     createSpinner('Cargando tus próximos eventos');
     const events = await fetch(
-      `http://localhost:3000/api/v1/events/user/${id}`,
+      `http://localhost:3000/api/v1/events/user/${userId}`,
       {
         headers: {
           'Content-Type': 'application/json',

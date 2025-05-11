@@ -1,3 +1,5 @@
+import createMessage from '../components/Message/message';
+
 const attendToEvent = async (eventId) => {
   try {
     const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
@@ -17,12 +19,12 @@ const attendToEvent = async (eventId) => {
     );
 
     if (response.ok) {
-      console.log('Asistente añadido al evento');
+      createMessage('Has sido añadido correctamente');
     } else {
-      console.error('Error al añadir asistente al evento');
+      createMessage('Error, no has sido añadido al evento');
     }
   } catch (error) {
-    console.log('Error inesperado', error);
+    createMessage('Error inesperado', error);
   }
 };
 
