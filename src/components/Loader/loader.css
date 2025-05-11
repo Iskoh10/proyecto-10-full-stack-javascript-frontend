@@ -5,7 +5,7 @@
   transform: translate(-50%, -50%);
   width: min(35%, 1000px);
   padding: 3rem 1.5rem;
-  border-radius: 10px;
+  border-radius: var(--br-1rem);
   opacity: 1;
   flex-direction: var(--flex-direction-column);
   z-index: 3;
@@ -14,7 +14,7 @@
 #dialog-loader::backdrop {
   background-color: #00000074;
   transform: translate(100%);
-  transition: 0.5s transform;
+  transition: 0.5s transform ease-in-out;
 }
 
 #dialog-loader[open] {
@@ -37,12 +37,12 @@
 }
 
 .loader {
-  border: 4px solid rgba(0, 0, 0, 0.1);
+  border: 4px solid #0000001a;
   width: 36px;
   height: 36px;
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-1);
   border-radius: 50%;
-  border-left-color: #09f;
+  border-left-color: var(--loader-color);
 
   animation: spin 1s ease infinite;
 }
@@ -58,6 +58,6 @@
 
 .text-waiting {
   color: #4caf50;
-  font-weight: 600;
+  font-weight: var(--fw-600);
   font-size: 2rem;
 }

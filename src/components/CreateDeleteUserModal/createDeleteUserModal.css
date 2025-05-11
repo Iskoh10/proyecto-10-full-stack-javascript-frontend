@@ -1,8 +1,8 @@
 #users-select {
   appearance: none;
   width: 70%;
-  margin-top: 1rem;
-  border: 1px solid blueviolet;
+  margin-top: var(--margin-1);
+  border: var(--border-users-select);
   border-radius: 3em;
   padding: 0.3rem 1rem;
   text-align: left;
@@ -11,7 +11,7 @@
 }
 
 #users-select:hover {
-  background-color: #ffbebe;
+  background-color: var(--a-primary-color);
 }
 
 #confirm-del-user-modal {
@@ -19,15 +19,15 @@
 }
 
 .user-to-del {
-  color: red;
+  color: var(--warning-color);
   font-size: 2rem;
-  margin-top: 1rem;
+  margin-top: var(--margin-1);
 }
 
 .btn-container-admin {
   width: 30%;
-  padding: 1rem;
-  gap: 1rem;
+  padding: var(--padding-1rem);
+  gap: var(--gap-1);
 }
 
 .confirm-no-del-user-btn {

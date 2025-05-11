@@ -3,17 +3,17 @@
 }
 
 #events > h3 {
-  margin: 1em auto;
+  margin: var(--margin-1) auto;
 }
 
 #events-container {
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: var(--padding-1rem);
   gap: 20px;
   flex-direction: var(--flex-direction-column);
   flex-wrap: var(--flex-wrap-wrap);
-  border: 1px solid green;
+
   align-items: stretch;
 }
 
@@ -22,45 +22,43 @@ li.li-event {
   flex: 1 1 0;
   justify-content: space-around;
   align-items: stretch;
-  margin: 1rem;
+  margin: var(--margin-1);
   min-width: 200px;
-  background-color: #a0c1c9;
-  color: #333;
-  border: 1px solid red;
-  border-radius: 10px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s, background-color 0.2s ease;
+  background-color: var(--bg-events-resume-color);
+  color: var(--bg-dark-color);
+  border-radius: var(--br-1rem);
+  box-shadow: var(--bs-events-resume-color);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .li-event-in:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: #85d2e5;
+  background-color: var(--bg-events-hover-color);
 }
 
 div.day {
   min-width: 70px;
   height: 70px;
-  margin: 1rem;
-  border: 1px solid red;
+  margin: var(--margin-1);
 }
 
 div.day p {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: var(--fw-600);
   text-align: center;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--bg-light-color);
+  color: var(--bg-dark-color);
   padding: 0.5rem 1rem;
-  border-radius: 10px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: var(--br-1rem);
+  box-shadow: var(--bs-events-date);
   transition: transform 0.2s ease;
 }
 
 div.data {
   position: relative;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: var(--justify-content-sa);
   flex-direction: var(--flex-direction-column);
   margin: 0.5rem;
   padding: 0.5rem;
@@ -68,7 +66,7 @@ div.data {
 }
 
 .event-info {
-  align-items: center;
+  align-items: var(--align-items-center);
   padding: 0.2rem 1rem;
   gap: 20%;
 }
@@ -76,20 +74,19 @@ div.data {
 .event-img {
   width: 100%;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: var(--br-1rem);
 }
 
 h3.event-title {
   font-size: clamp(1.5rem, 2vw, 2rem);
   letter-spacing: 1px;
   text-transform: uppercase;
-
   width: 100%;
 }
 
 p.location {
   font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-  font-weight: 700;
+  font-weight: var(--fw-600);
 }
 
 .event-btns {
@@ -97,7 +94,7 @@ p.location {
   padding: 0.5rem;
   gap: 0.3rem;
 }
-
+/*! Vamos por aqui, organizar las custom properties*/
 button.attend {
   position: relative;
   margin: 2%;

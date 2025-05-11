@@ -13,7 +13,7 @@ const profileTemplate = () => {
 
   return `
 ${
-  user.rol === 'admih'
+  user.rol === 'admin'
     ? `<section id="profile" class="flex-container">
       <div class="div-img flex-container">
         <img class="user-img"></img>

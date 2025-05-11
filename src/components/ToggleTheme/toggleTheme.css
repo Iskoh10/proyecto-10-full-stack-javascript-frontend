@@ -1,13 +1,13 @@
 body {
-  background-color: #f5f8f8;
+  background-color: var(--bg-light-color);
   font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  color: var(--bg-dark-color);
   transition: background-color 0.5s ease;
 }
 
 body.night {
-  background-color: #3f3f4c;
-  color: #a5abb0;
+  background-color: var(--bg-night-toggle);
+  color: var(--fc-dark-mode);
 }
 
 .toggle-container {
@@ -29,8 +29,7 @@ body.night {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #f5f8f8;
-  box-sizing: border-box;
+  background: var(--bg-light-color);
   cursor: pointer;
   transition: background-color 0.5s ease;
 }
@@ -58,7 +57,7 @@ body.night {
   height: 100%;
   border-radius: 50%;
   border: 4px solid #f5f8f8;
-  box-shadow: 0 0 0 0 #f5f8f8, 0 0 0 3px #a5abb0, 0 0 0 35px #f5f8f8;
+  box-shadow: var(--bs-toggle);
   box-sizing: border-box;
   transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }

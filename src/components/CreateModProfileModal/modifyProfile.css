@@ -3,7 +3,7 @@
 }
 
 .mod-profile-btn {
-  margin-top: 1rem;
+  margin-top: var(--margin-1);
   width: 90%;
-  align-self: center;
+  align-self: var(--align-self);
 }

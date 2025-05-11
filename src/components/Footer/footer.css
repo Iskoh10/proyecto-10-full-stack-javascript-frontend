@@ -2,7 +2,7 @@
   margin-top: auto;
   border: 1px solid rgb(27, 235, 79);
   width: 100%;
-  color: white;
+  color: var(--bg-light-color);
   background: radial-gradient(
       circle at 100% 50%,
       transparent 20%,
@@ -37,28 +37,28 @@
 .who-we-are,
 .follow-social-media {
   flex-direction: var(--flex-direction-column);
-  padding: 1rem;
+  padding: var(--padding-1-rem);
 }
 
 .who-we-are,
 .follow-social-media {
-  padding: 1rem;
+  padding: var(--padding-1-rem);
 }
 
 .who-we-are p {
   text-align: start;
   line-height: 1.6;
-  margin: 1rem 0;
+  margin: var(--margin-1) 0;
   text-align: justify;
   hyphens: auto;
 }
 
 .follow-social-media > h3 {
-  margin-bottom: 2rem;
+  margin-bottom: var(--margin-2);
 }
 
 .logo-container {
-  gap: 1rem;
+  gap: var(--gap-1);
 }
 
 .logo-container a {
@@ -68,8 +68,8 @@
 .logo-container div {
   width: 50px;
   height: 50px;
-  border: 1px solid white;
-  border-radius: 10%;
+  border: var(--border-light);
+  border-radius: var(--br-1rem);
   cursor: pointer;
   transition: background-color 0.2s, border 0.2s ease-in-out;
 }
@@ -82,71 +82,78 @@
 }
 
 .logo-container div:nth-child(1) {
-  background-color: #3b5793;
+  background-color: var(--fb-color);
 }
 
 .logo-container div:nth-child(1):hover {
-  background-color: white;
-  border: 5px solid #3b5793;
+  background-color: var(--bg-light-color);
+  border: 5px solid var(--fb-color);
 }
 
 .logo-container div:nth-child(2) {
   background: linear-gradient(
     45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
+    var(--ig-color-1) 0%,
+    var(--ig-color-2) 25%,
+    var(--ig-color-3) 50%,
+    var(--ig-color-4) 75%,
+    var(--ig-color-5) 100%
   );
 }
 
 .logo-container div:nth-child(2):hover {
-  background: white;
+  background: var(--bg-light-color);
   border: 5px solid transparent;
-  border-image: linear-gradient(to right, #f09433, #dc2743, #cc2366, #bc1888) 1;
+  border-image: linear-gradient(
+      to right,
+      var(--ig-color-1),
+      var(--ig-color-3),
+      var(--ig-color-4),
+      var(--ig-color-5)
+    )
+    1;
 }
 
 .logo-container div:nth-child(3) {
-  background-color: #2764ac;
+  background-color: var(--in-color);
 }
 
 .logo-container div:nth-child(3):hover {
-  background-color: white;
-  border: 5px solid #2764ac;
+  background-color: var(--bg-light-color);
+  border: 5px solid var(--in-color);
 }
 
 .logo-container div:nth-child(4) {
-  background-color: #24cc63;
+  background-color: var(--wa-color);
 }
 
 .logo-container div:nth-child(4):hover {
-  background-color: white;
-  border: 5px solid #24cc63;
+  background-color: var(--bg-light-color);
+  border: 5px solid var(--wa-color);
 }
 
 .logo-container div:nth-child(5) {
-  background-color: #f7f7f7;
+  background-color: var(--bg-light-color);
 }
 
 .logo-container div:nth-child(5):hover {
-  border: 5px solid black;
+  border: 5px solid var(--bg-dark-color);
 }
 
 .legality {
-  padding: 1rem;
-  background-color: white;
+  padding: var(--padding-1rem);
+  background-color: var(--bg-light-color);
   width: 100%;
 }
 
 .ul-legality {
-  gap: 1rem;
-  justify-content: end;
+  gap: var(--gap-1);
+  justify-content: var(--justify-content-end);
 }
 
 .ul-legality li a {
   all: unset;
-  color: #3f3f4c;
-  font-weight: 600;
+  color: var(--bg-dark-color);
+  font-weight: var(--fw-600);
   cursor: pointer;
 }

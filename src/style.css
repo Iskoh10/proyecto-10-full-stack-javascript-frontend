@@ -6,21 +6,45 @@
   --flex-wrap-wrap: wrap;
   --justify-content-center: center;
   --justify-content-start: start;
+  --justify-content-end: end;
   --justify-content-sb: space-between;
+  --justify-content-sa: space-around;
   --align-items-center: center;
+  --align-self: start;
+  --align-self: end;
+  --align-self: center;
 
   /* Colors */
+  --bg-night-toggle: #3f3f4c;
   --bg-dark-color: #121212;
   --bg-light-color: #f5f8f8;
   --bg-form-color: var(--bg-light-color);
+  --bg-events-resume-color: #a0c1c9;
+  --bg-events-hover-color: #85d2e5;
 
   --fc-light-mode: var(--bg-dark-color);
   --fc-dark-mode: #a5abb0;
+  --fc-profile-color: #0056b3;
 
   --a-primary-color: indianred;
-
+  --backdrop-modal-color: #00000074;
+  --warning-color: #cc3300;
+  --blueviolet-color: blueviolet;
+  --loader-color: #09f;
   --label-form-focus-color: #4a90e2;
   --label-form-color: #ccc;
+
+  --fb-color: #3b5793;
+
+  --ig-color-1: #f09433;
+  --ig-color-2: #e6683c;
+  --ig-color-3: #dc2743;
+  --ig-color-4: #cc2366;
+  --ig-color-5: #bc1888;
+
+  --in-color: #2764ac;
+
+  --wa-color: #24cc63;
 
   /* Fonts */
   --fs-2-5-rem: 2.5rem;
@@ -34,16 +58,22 @@
   --padding-1rem: 1rem;
   --padding-2-3-rem: 2rem 3rem;
 
+  --gap-1: 1rem;
   --gap-20-px: 20px;
 
   /* Border */
   --border-light: 1px solid var(--label-form-color);
   --border-dark: 1px solid var(--bg-dark-color);
+  --border-users-select: 1px solid var(--blueviolet-color);
 
   --br-1rem: 1rem;
 
   /* Box-shadow */
   --bs-form: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --bs-message-modal: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --bs-toggle: 0 0 0 0 #f5f8f8, 0 0 0 3px #a5abb0, 0 0 0 35px #f5f8f8;
+  --bs-events-resume-color: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  --bs-events-date: 2px 2px 6px rgba(0, 0, 0, 0.2);
 
   --primary-bg: #139c9c;
   --accent-top: #064b4a;

@@ -2,15 +2,15 @@
   width: 100%;
   flex-direction: var(--flex-direction-column);
 }
-/*! Vamos por aqui */
+
 .delete-modal-inner > h2,
 .inner-confirm-delete-modal > h2 {
-  color: red;
-  margin-bottom: 1rem;
+  color: var(--warning-color);
+  margin-bottom: var(--margin-1);
 }
 
 .delete-account-btn {
-  margin-top: 2rem;
+  margin-top: var(--margin-2);
 }
 
 .close-delete-btn {
@@ -22,15 +22,15 @@
 }
 
 #confirm-delete-modal > h2 {
-  color: red;
+  color: var(--warning-color);
 }
 
 .btn-container {
   width: 70%;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding: 1rem;
-  align-items: center;
+  gap: var(--gap-1);
+  margin-top: var(--margin-1);
+  padding: var(--padding-1);
+  align-items: var(--align-items-center);
 }
 
 .delete-yes-btn {
