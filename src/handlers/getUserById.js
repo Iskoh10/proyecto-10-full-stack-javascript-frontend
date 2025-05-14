@@ -1,25 +1,22 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
+import apiRequest from './apiRequest';
 
 const getUserById = async () => {
   const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
 
   try {
     createSpinner('Cargando tu perfil');
-    const userData = await fetch(
-      `http://localhost:3000/api/v1/users/${userId}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`
-        }
-      }
-    );
 
-    const user = await userData.json();
+    const response = await apiRequest({
+      method: 'GET',
+      url: `v1/users/${userId}`,
+      token
+    });
 
-    if (userData.ok) {
+    const user = await response.json();
+
+    if (response.ok) {
       createSpinner('close');
       const h2NameUser = document.querySelector('.nameUser');
       const pEmailUser = document.querySelector('.emailUser');

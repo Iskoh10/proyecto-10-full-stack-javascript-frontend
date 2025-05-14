@@ -1,5 +1,6 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
+import apiRequest from './apiRequest';
 import loginSubmit from './loginHandler';
 
 const registerSubmit = async () => {
@@ -25,14 +26,19 @@ const registerSubmit = async () => {
   try {
     createSpinner('Creando tu Cuenta');
 
-    const res = await fetch('http://localhost:3000/api/v1/users/register', {
+    const response = await apiRequest({
       method: 'POST',
-      body: formData
+      url: 'v1/users/register',
+      formData
     });
+    // const res = await fetch('http://localhost:3000/api/v1/users/register', {
+    //   method: 'POST',
+    //   body: formData
+    // });
 
-    const dataRes = await res.json();
+    const dataRes = await response.json();
 
-    if (res.ok) {
+    if (response.ok) {
       loginSubmit(email, password);
       return;
     } else {

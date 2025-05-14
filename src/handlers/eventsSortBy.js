@@ -1,5 +1,6 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
+import apiRequest from './apiRequest';
 import renderSortedEvents from './renderSortedEvents';
 
 const eventsSortBy = async (sort, text) => {
@@ -7,15 +8,20 @@ const eventsSortBy = async (sort, text) => {
 
   try {
     createSpinner('Ordenando...');
-    const response = await fetch(
-      `http://localhost:3000/api/v1/events/sorted?sort=${sort}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
+    const response = await apiRequest({
+      method: 'GET',
+      url: `v1/events/sorted?sort=${sort}`,
+      token
+    });
+    // const response = await fetch(
+    //   `http://localhost:3000/api/v1/events/sorted?sort=${sort}`,
+    //   {
+    //     method: 'GET',
+    //     headers: {
+    //       Authorization: `Bearer ${token}`
+    //     }
+    //   }
+    // );
 
     const sortedEvents = await response.json();
 

@@ -1,6 +1,7 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
 import Events from '../pages/Events/Events';
+import apiRequest from './apiRequest';
 
 let listenerExist = false;
 
@@ -38,17 +39,23 @@ const createEvent = async () => {
       createSpinner('Creando nuevo Evento');
       const { token } = JSON.parse(localStorage.getItem('user'));
 
-      const res = await fetch('http://localhost:3000/api/v1/events', {
+      const response = await apiRequest({
         method: 'POST',
-        headers: {
-          authorization: `Bearer ${token}`
-        },
-        body: formData
+        url: 'v1/events',
+        token,
+        formData: formData
       });
+      // const res = await fetch('http://localhost:3000/api/v1/events', {
+      //   method: 'POST',
+      //   headers: {
+      //     authorization: `Bearer ${token}`
+      //   },
+      //   body: formData
+      // });
 
-      const dataRes = await res.json();
+      const dataRes = await response.json();
 
-      if (res.ok) {
+      if (response.ok) {
         createSpinner('close');
         Events();
         createMessage('Evento Creado con éxito');

@@ -2,6 +2,7 @@ import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
 import createNavbar from '../components/Navbar/navbar';
 import Events from '../pages/Events/Events';
+import apiRequest from './apiRequest';
 
 const loginSubmit = async (emailParam, passwordParam) => {
   const email = emailParam || document.querySelector('#email').value;
@@ -9,20 +10,26 @@ const loginSubmit = async (emailParam, passwordParam) => {
 
   try {
     createSpinner('Login en marcha');
-    const data = await fetch('http://localhost:3000/api/v1/users/login', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
+
+    const response = await apiRequest({
       method: 'POST',
-      body: JSON.stringify({
-        email: email,
-        password: password
-      })
+      url: 'v1/users/login',
+      body: { email, password }
     });
+    // const data = await fetch('http://localhost:3000/api/v1/users/login', {
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: email,
+    //     password: password
+    //   })
+    // });
 
-    const dataRes = await data.json();
+    const dataRes = await response.json();
 
-    if (!data.ok) {
+    if (!response.ok) {
       console.error(dataRes.message || 'Error en el login');
       createMessage('Error en el login');
       createSpinner('close');

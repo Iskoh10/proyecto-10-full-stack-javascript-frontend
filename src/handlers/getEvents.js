@@ -8,8 +8,7 @@ import attachEventListeners from './eventHandlers';
 const getEvents = async () => {
   createSpinner('Cargando Eventos');
 
-  const response = await apiRequest('GET', 'v1/events');
-  // const eventsData = await fetch('http://localhost:3000/api/v1/events');
+  const response = await apiRequest({ method: 'GET', url: 'v1/events' });
 
   const events = await response.json();
 

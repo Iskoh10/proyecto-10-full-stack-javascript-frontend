@@ -1,24 +1,31 @@
 import createMessage from '../components/Message/message';
 import createSpinner from '../components/Loader/loader';
+import apiRequest from './apiRequest';
 
 const getEventsUser = async () => {
   const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
 
   try {
     createSpinner('Cargando tus próximos eventos');
-    const events = await fetch(
-      `http://localhost:3000/api/v1/events/user/${userId}`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
 
-    const eventsUser = await events.json();
+    const response = await apiRequest({
+      method: 'GET',
+      url: `v1/events/user/${userId}`,
+      token
+    });
+    // const events = await fetch(
+    //   `http://localhost:3000/api/v1/events/user/${userId}`,
+    //   {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       Authorization: `Bearer ${token}`
+    //     }
+    //   }
+    // );
 
-    if (events.ok) {
+    const eventsUser = await response.json();
+
+    if (response.ok) {
       const attendingEventContainer =
         document.querySelector('#attending-events');
       attendingEventContainer.innerHTML = '';

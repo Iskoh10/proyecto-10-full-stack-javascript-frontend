@@ -1,5 +1,6 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
+import apiRequest from './apiRequest';
 
 const updatePassword = async (tokenUrl) => {
   const newPassword = document.querySelector('#new-password');
@@ -10,16 +11,22 @@ const updatePassword = async (tokenUrl) => {
     createSpinner('Actualizando tu contraseña');
 
     try {
-      const response = await fetch(
-        `http://localhost:3000/api/auth/reset-password/${tokenUrl}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ password: newPassword.value })
-        }
-      );
+      const response = await apiRequest({
+        method: 'POST',
+        url: `auth/reset-password/${tokenUrl}`,
+        body: { password: newPassword.value }
+      });
+
+      // const response = await fetch(
+      //   `http://localhost:3000/api/auth/reset-password/${tokenUrl}`,
+      //   {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify({ password: newPassword.value })
+      //   }
+      // );
 
       const result = await response.json();
 
