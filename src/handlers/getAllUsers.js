@@ -11,13 +11,6 @@ const getAllUsers = async () => {
       url: 'v1/users',
       token
     });
-    // const response = await fetch('http://localhost:3000/api/v1/users', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${token}`
-    //   }
-    // });
 
     const users = await response.json();
 
@@ -27,7 +20,6 @@ const getAllUsers = async () => {
     } else {
       createSpinner('close');
       createMessage('Hubo un error en la búsqueda', users.message);
-      return ['👌'];
     }
   } catch (error) {
     createSpinner('close');

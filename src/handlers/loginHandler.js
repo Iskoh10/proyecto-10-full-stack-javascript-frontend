@@ -16,22 +16,11 @@ const loginSubmit = async (emailParam, passwordParam) => {
       url: 'v1/users/login',
       body: { email, password }
     });
-    // const data = await fetch('http://localhost:3000/api/v1/users/login', {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     email: email,
-    //     password: password
-    //   })
-    // });
 
     const dataRes = await response.json();
 
     if (!response.ok) {
-      console.error(dataRes.message || 'Error en el login');
-      createMessage('Error en el login');
+      createMessage('Error en el login', dataRes.message);
       createSpinner('close');
       return;
     }
@@ -53,7 +42,7 @@ const loginSubmit = async (emailParam, passwordParam) => {
     Events();
     createMessage(`Logueado con éxito`);
   } catch (error) {
-    console.error('Error en la petición de login:', error);
+    console.error('Error en la petición de login:', error.message);
   }
 };
 

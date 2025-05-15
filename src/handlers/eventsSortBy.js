@@ -13,15 +13,6 @@ const eventsSortBy = async (sort, text) => {
       url: `v1/events/sorted?sort=${sort}`,
       token
     });
-    // const response = await fetch(
-    //   `http://localhost:3000/api/v1/events/sorted?sort=${sort}`,
-    //   {
-    //     method: 'GET',
-    //     headers: {
-    //       Authorization: `Bearer ${token}`
-    //     }
-    //   }
-    // );
 
     const sortedEvents = await response.json();
 

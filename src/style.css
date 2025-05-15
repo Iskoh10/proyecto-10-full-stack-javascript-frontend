@@ -1,8 +1,8 @@
 /* Custom properties */
 :root {
-  /*! Organizar las custom properties */
   /* Display */
   --display-flex: flex;
+  --flex-direction-row: row;
   --flex-direction-column: column;
   --flex-wrap-wrap: wrap;
   --justify-content-center: center;
@@ -185,4 +185,111 @@ input[type='file'] {
   border: var(--border-light);
   border-radius: 0.5rem;
   font-size: 1rem;
+}
+
+@media screen and (width <= 760px) {
+  .toggle-container {
+    display: none;
+  }
+
+  #event-modal,
+  #event-form,
+  #events-modal,
+  #mod-profile-modal,
+  #delete-user-modal,
+  #confirm-del-user-modal,
+  #delete-modal,
+  #confirm-delete-modal {
+    width: 100%;
+  }
+}
+
+@media screen and (width <= 720px) {
+  .footer-section {
+    flex-direction: var(--flex-direction-column);
+  }
+
+  div.follow-social-media {
+    width: 100%;
+  }
+}
+
+@media screen and (width <= 470px) {
+  .day {
+    display: none;
+  }
+}
+
+@media screen and (width <= 370px) {
+  header.header {
+    flex-direction: var(--flex-direction-column);
+    padding-left: 0;
+  }
+
+  div.div-nav {
+    width: 100%;
+  }
+
+  .div-logo {
+    margin-top: 1%;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  ul#events-container {
+    margin: 0;
+    padding: 0.2rem;
+  }
+
+  ul li.li-event,
+  .li-event div.data {
+    margin: 0;
+  }
+
+  .data > h3.event-title {
+    font-size: 1rem;
+  }
+
+  div.event-info {
+    gap: 10%;
+  }
+
+  button.delete-event-btn {
+    height: 50%;
+    margin: auto 2px;
+  }
+
+  main #dialog-loader {
+    width: 90%;
+    position: block;
+  }
+
+  footer.footer {
+    padding: var(--padding-1rem) 0;
+  }
+
+  #event-details,
+  .footer-section,
+  div.who-we-are p {
+    width: 90%;
+  }
+
+  div.who-we-are {
+    padding: 0;
+  }
+
+  section#profile {
+    flex-direction: var(--flex-direction-column);
+    align-items: var(--align-items-center);
+  }
+
+  button#close-event-modal {
+    width: 50%;
+  }
+
+  select#users-select {
+    width: 50%;
+  }
 }

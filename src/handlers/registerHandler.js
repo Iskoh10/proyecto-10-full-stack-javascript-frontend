@@ -31,10 +31,6 @@ const registerSubmit = async () => {
       url: 'v1/users/register',
       formData
     });
-    // const res = await fetch('http://localhost:3000/api/v1/users/register', {
-    //   method: 'POST',
-    //   body: formData
-    // });
 
     const dataRes = await response.json();
 
@@ -47,7 +43,7 @@ const registerSubmit = async () => {
     }
   } catch (error) {
     createSpinner('close');
-    createMessage('No se pudo conectar al servidor', error);
+    createMessage('No se pudo conectar al servidor', error.message);
   }
 };
 

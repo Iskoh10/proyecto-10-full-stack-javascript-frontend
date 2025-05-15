@@ -1,6 +1,7 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
 import Profile from '../pages/Profile/profile';
+import apiRequest from './apiRequest';
 
 const deleteUser = async (userId) => {
   const { token } = JSON.parse(localStorage.getItem('user'));
@@ -8,16 +9,11 @@ const deleteUser = async (userId) => {
   try {
     createSpinner('Eliminando al usuario...');
 
-    const response = await fetch(
-      `http://localhost:3000/api/v1/users/${userId}`,
-      {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
+    const response = await apiRequest({
+      method: 'DELETE',
+      url: `v1/users/${userId}`,
+      token
+    });
 
     const dataRes = response.json();
 

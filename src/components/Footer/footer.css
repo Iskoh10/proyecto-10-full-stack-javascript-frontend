@@ -37,12 +37,7 @@
 .who-we-are,
 .follow-social-media {
   flex-direction: var(--flex-direction-column);
-  padding: var(--padding-1-rem);
-}
-
-.who-we-are,
-.follow-social-media {
-  padding: var(--padding-1-rem);
+  padding: var(--padding-1rem);
 }
 
 .who-we-are p {

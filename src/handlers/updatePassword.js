@@ -17,17 +17,6 @@ const updatePassword = async (tokenUrl) => {
         body: { password: newPassword.value }
       });
 
-      // const response = await fetch(
-      //   `http://localhost:3000/api/auth/reset-password/${tokenUrl}`,
-      //   {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify({ password: newPassword.value })
-      //   }
-      // );
-
       const result = await response.json();
 
       if (response.ok) {
@@ -40,7 +29,7 @@ const updatePassword = async (tokenUrl) => {
       }
     } catch (error) {
       createSpinner('close');
-      createMessage('Error de conexión con el servidor ❌');
+      createMessage('Error de conexión con el servidor ❌', error.message);
     }
   } else {
     createSpinner('close');

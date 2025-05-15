@@ -1,5 +1,6 @@
 import createMessage from '../components/Message/message';
 import Profile from '../pages/Profile/profile';
+import apiRequest from './apiRequest';
 
 const modProfilePost = async () => {
   const inputName = document.querySelector('#mod-username');
@@ -29,21 +30,16 @@ const modProfilePost = async () => {
     }
 
     try {
-      const modProfile = await fetch(
-        `http://localhost:3000/api/v1/users/${userId}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
-          },
-          body: JSON.stringify(updateData)
-        }
-      );
+      const response = await apiRequest({
+        method: 'PUT',
+        url: `v1/users/${userId}`,
+        token,
+        body: updateData
+      });
 
-      const userData = await modProfile.json();
+      const userData = await response.json();
 
-      if (modProfile.ok) {
+      if (response.ok) {
         const updatedUser = {
           ...JSON.parse(localStorage.getItem('user')),
           ...updateData
@@ -55,7 +51,7 @@ const modProfilePost = async () => {
         createMessage('Error al actualizar el Perfil', userData.message);
       }
     } catch (error) {
-      createMessage('Error en la Conexión', error);
+      createMessage('Error en la Conexión', error.message);
     }
   }
 };

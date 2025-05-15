@@ -1,6 +1,7 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
 import Profile from '../pages/Profile/profile';
+import apiRequest from './apiRequest';
 
 const changeImg = () => {
   const fileInput = document.querySelector('.profileImgInput');
@@ -27,15 +28,14 @@ const changeImg = () => {
 
     const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      const response = await apiRequest({
         method: 'PUT',
-        headers: {
-          authorization: `Bearer ${token}`
-        },
-        body: formData
+        url: `v1/users/${userId}`,
+        token,
+        formData
       });
 
-      if (!res.ok) {
+      if (!response.ok) {
         createMessage('Error al subir la imagen');
       }
 

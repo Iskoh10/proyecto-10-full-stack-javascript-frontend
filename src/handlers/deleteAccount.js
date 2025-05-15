@@ -1,22 +1,19 @@
 import createSpinner from '../components/Loader/loader';
 import createMessage from '../components/Message/message';
 import Events from '../pages/Events/Events';
+import apiRequest from './apiRequest';
 
 const deleteAccount = async () => {
   const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
 
-  createSpinner('Eliminando tu cuenta');
   try {
-    const response = await fetch(
-      `http://localhost:3000/api/v1/users/${userId}`,
-      {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`
-        }
-      }
-    );
+    createSpinner('Eliminando tu cuenta');
+
+    const response = await apiRequest({
+      method: 'DELETE',
+      url: `v1/users/${userId}`,
+      token
+    });
 
     const dataRes = await response.json();
 

@@ -45,13 +45,6 @@ const createEvent = async () => {
         token,
         formData: formData
       });
-      // const res = await fetch('http://localhost:3000/api/v1/events', {
-      //   method: 'POST',
-      //   headers: {
-      //     authorization: `Bearer ${token}`
-      //   },
-      //   body: formData
-      // });
 
       const dataRes = await response.json();
 
@@ -65,7 +58,7 @@ const createEvent = async () => {
       }
     } catch (error) {
       createSpinner('close');
-      createMessage(`Error en la conexión: ${error}`);
+      createMessage('Error en la conexión:', error.message);
     }
   });
 };

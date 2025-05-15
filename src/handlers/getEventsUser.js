@@ -13,15 +13,6 @@ const getEventsUser = async () => {
       url: `v1/events/user/${userId}`,
       token
     });
-    // const events = await fetch(
-    //   `http://localhost:3000/api/v1/events/user/${userId}`,
-    //   {
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       Authorization: `Bearer ${token}`
-    //     }
-    //   }
-    // );
 
     const eventsUser = await response.json();
 
@@ -61,10 +52,12 @@ const getEventsUser = async () => {
       }
       createSpinner('close');
     } else {
+      createSpinner('close');
       createMessage('Hubo un error en tu lista de eventos');
     }
   } catch (error) {
-    console.error('Error en la petición de eventos reservados:', error);
+    createSpinner('close');
+    createMessage('Error en la petición de eventos reservados:', error.message);
   }
 };
 

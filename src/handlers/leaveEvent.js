@@ -1,23 +1,16 @@
 import createMessage from '../components/Message/message';
+import apiRequest from './apiRequest';
 
 const leaveEvent = async (eventId) => {
   const { id: userId, token } = JSON.parse(localStorage.getItem('user'));
 
   try {
-    const response = await fetch(
-      `http://localhost:3000/api/v1/events/${eventId}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          participants: userId,
-          leave: true
-        })
-      }
-    );
+    const response = await apiRequest({
+      method: 'PUT',
+      url: `v1/events/${eventId}`,
+      token,
+      body: { participants: userId, leave: true }
+    });
 
     const dataRes = response.json();
 
@@ -27,7 +20,7 @@ const leaveEvent = async (eventId) => {
       createMessage('Error al eliminarte del evento', dataRes.message);
     }
   } catch (error) {
-    console.log('Error inesperado', error);
+    createMessage('Error inesperado', error.message);
   }
 };
 
