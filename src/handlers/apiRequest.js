@@ -26,7 +26,10 @@ const apiRequest = async ({
       }
     }
 
-    const response = await fetch(`http://localhost:3000/api/${url}`, options);
+    const response = await fetch(
+      `https://proyecto10-backend-beta.vercel.app/api/${url}`,
+      options
+    );
     return response;
   } catch (error) {
     createSpinner('close');

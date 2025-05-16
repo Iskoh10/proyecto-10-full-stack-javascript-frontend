@@ -51,5 +51,3 @@ Events();
 // window.addEventListener('beforeunload', () => {
 //   localStorage.removeItem('user');
 // });
-
-//! Crear handlerFetch para unificar los fetch

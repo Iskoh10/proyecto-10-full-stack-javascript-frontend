@@ -1,3 +1,4 @@
+import apiRequest from '../../handlers/apiRequest';
 import Login from '../../pages/Login/Login';
 import createSpinner from '../Loader/loader';
 import createMessage from '../Message/message';
@@ -20,16 +21,12 @@ const sendEmail = () => {
 
     try {
       createSpinner('Te estamos enviando un correo...');
-      const response = await fetch(
-        'http://localhost:3000/api/auth/forgot-password',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email })
-        }
-      );
+
+      const response = await apiRequest({
+        method: 'POST',
+        url: 'auth/forgot-password',
+        body: { email: email }
+      });
 
       const result = await response.json();
 
