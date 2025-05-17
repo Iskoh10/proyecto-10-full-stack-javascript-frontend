@@ -13,19 +13,19 @@ const createFooter = () => {
     <h3>Síguenos en redes!</h3>
     <div class="logo-container flex-container">
     <div class="flex-container">
-      <a href="#"><img src="./src/assets/footerImg/facebook.svg" alt="facebook"></a>
+      <a href="#"><img src="/footerImg/facebook.svg" alt="facebook"></a>
       </div>
       <div class="flex-container">
-      <a href="#"><img src="./src/assets/footerImg/instagram.svg" alt="instagram"></a>
+      <a href="#"><img src="/footerImg/instagram.svg" alt="instagram"></a>
       </div>
       <div class="flex-container">
-      <a href="#"><img src="./src/assets/footerImg/linkedin.svg" alt="linkedin"></a>
+      <a href="#"><img src="/footerImg/linkedin.svg" alt="linkedin"></a>
       </div>
       <div class="flex-container">
-      <a href="#"><img src="./src/assets/footerImg/whatsapp.svg" alt="whatsapp"></a>
+      <a href="#"><img src="/footerImg/whatsapp.svg" alt="whatsapp"></a>
       </div>
       <div class="flex-container">
-      <a href="#"><img src="./src/assets/footerImg/x.svg" alt="x"></a>
+      <a href="#"><img src="/footerImg/x.svg" alt="x"></a>
       </div>
     </div>
   </div>
