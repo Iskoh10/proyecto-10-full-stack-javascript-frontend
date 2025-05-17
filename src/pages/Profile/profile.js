@@ -59,7 +59,13 @@ ${
 }`;
 };
 
-const Profile = () => {
+const Profile = (e) => {
+  if (e) {
+    e.preventDefault();
+  }
+
+  window.history.pushState('', '', '/profile');
+
   document.querySelector('main').innerHTML = profileTemplate();
 
   createSpinner('Cargando tu perfil');

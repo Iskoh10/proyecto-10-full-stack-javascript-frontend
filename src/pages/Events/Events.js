@@ -1,7 +1,6 @@
 import './events.css';
 import resetPassword from '../../components/ResetPassword/resetPassword';
 import getEvents from '../../handlers/getEvents';
-import createFooter from '../../components/Footer/footer';
 import createSelectSort from '../../components/CreateSelectSort/createSelectSort';
 
 const eventTemplate = () => {
@@ -20,7 +19,13 @@ ${
 `;
 };
 
-const Events = () => {
+const Events = (e) => {
+  if (e) {
+    e.preventDefault();
+  }
+
+  window.history.pushState('', '', '/events');
+
   document.querySelector('main').innerHTML = eventTemplate();
 
   const pathParts = window.location.pathname.split('/');
@@ -35,8 +40,6 @@ const Events = () => {
   createSelectSort();
 
   getEvents();
-
-  createFooter();
 };
 
 export default Events;

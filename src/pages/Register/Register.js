@@ -22,7 +22,13 @@ const registerTemplate = () => `
 </section>
 `;
 
-const Register = () => {
+const Register = (e) => {
+  if (e) {
+    e.preventDefault();
+  }
+
+  window.history.pushState('', '', '/register');
+
   document.querySelector('main').innerHTML = registerTemplate();
 
   const formRegister = document.querySelector('.register > form');

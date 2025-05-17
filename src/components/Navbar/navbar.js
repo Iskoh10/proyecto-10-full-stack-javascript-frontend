@@ -50,18 +50,18 @@ const createNavbar = () => {
 
   navBar
     .querySelector('#eventsLink')
-    ?.addEventListener('click', () => Events());
+    ?.addEventListener('click', (e) => Events(e));
 
   navBar
     .querySelector('#registerLink')
-    ?.addEventListener('click', () => Register());
+    ?.addEventListener('click', (e) => Register(e));
 
-  navBar.querySelector('#loginLink')?.addEventListener('click', () => {
-    Login();
+  navBar.querySelector('#loginLink')?.addEventListener('click', (e) => {
+    Login(e);
   });
 
-  navBar.querySelector('#profileLink')?.addEventListener('click', () => {
-    Profile();
+  navBar.querySelector('#profileLink')?.addEventListener('click', (e) => {
+    Profile(e);
   });
 
   document.querySelector('#logoutLink')?.addEventListener('click', () => {

@@ -1,5 +1,6 @@
 #profile {
   width: 100%;
+  min-height: 50svh;
   justify-content: var(--justify-content-start);
   align-items: var(--justify-content-start);
   position: relative;

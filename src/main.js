@@ -2,6 +2,7 @@ import './style.css';
 import Events from './pages/Events/Events';
 import createNavbar from './components/Navbar/navbar';
 import createToggle from './components/ToggleTheme/toggleTheme';
+import createFooter from './components/Footer/footer';
 
 const app = document.querySelector('#app');
 app.className = 'flex-container';
@@ -48,6 +49,8 @@ createNavbar();
 
 Events();
 
-// window.addEventListener('beforeunload', () => {
-//   localStorage.removeItem('user');
-// });
+createFooter();
+
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('user');
+});

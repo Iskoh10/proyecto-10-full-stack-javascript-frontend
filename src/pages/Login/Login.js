@@ -21,7 +21,13 @@ ${
 </section>
 `;
 
-const Login = (email, password) => {
+const Login = (e, email, password) => {
+  if (e) {
+    e.preventDefault();
+  }
+
+  window.history.pushState('', '', '/login');
+
   document.querySelector('main').innerHTML = loginTemplate();
 
   const loginForm = document.querySelector('.login > form');
