@@ -18,9 +18,9 @@ const createToggle = (parentNode) => {
     const logo = document.querySelector('.img-logo');
 
     if (body.classList.contains('night')) {
-      logo.src = 'src/assets/darkLogo.png';
+      logo.src = '/darkLogo.png';
     } else {
-      logo.src = 'src/assets/lightLogo.png';
+      logo.src = '/lightLogo.png';
     }
   });
 };

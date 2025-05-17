@@ -15,7 +15,7 @@ divLogo.classList.add('div-logo', 'flex-container');
 
 const logoImg = document.createElement('img');
 logoImg.className = 'img-logo';
-logoImg.src = 'src/assets/darkLogo.png';
+logoImg.src = '/darkLogo.png';
 
 logoImg.addEventListener('click', () => Events());
 
