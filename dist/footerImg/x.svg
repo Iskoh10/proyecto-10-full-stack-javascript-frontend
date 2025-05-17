@@ -1,0 +1,5 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="cl-icon" aria-hidden="true" width="24"  height="24" ><defs><symbol id="cl-icon-twitter" viewBox="0 0 24 24">
+  <path d="M14.2361 10.1624L22.9786 0H20.9069L13.3158 8.82384L7.25289 0H0.259995L9.42836 13.3432L0.259995 24H2.33179L10.3481 14.6817L16.751 24H23.7439L14.2356 10.1624H14.2361ZM11.3985 13.4608L10.4696 12.1321L3.07828 1.55962H6.26043L12.2253 10.0919L13.1542 11.4206L20.9079 22.5113H17.7257L11.3985 13.4613V13.4608Z"></path>
+</symbol></defs>
+      <use href="#cl-icon-twitter"></use>
+    </svg>

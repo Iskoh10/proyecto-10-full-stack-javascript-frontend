@@ -1,0 +1,5 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="cl-icon" aria-hidden="true" width="15.18"  height="30" ><defs><symbol id="cl-icon-facebook" viewBox="0 0 15.18 30">
+  <path d="M14.66,10.81H10.15V7.88c.33-2.81,5-2.27,5-2.27V.76h0c-.16,0-9.22-2.19-11,4.7h0a35.46,35.46,0,0,0-.28,5.35H0v5.28H4.1V30.43h6V16.09h4.57l.52-5.28Z" fill-rule="evenodd"></path>
+</symbol></defs>
+      <use href="#cl-icon-facebook"></use>
+    </svg>
