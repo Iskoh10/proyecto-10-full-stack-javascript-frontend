@@ -47,10 +47,6 @@ document.body.appendChild(app);
 
 createNavbar();
 
-Events();
-
-createFooter();
-
 const pathParts = window.location.pathname.split('/');
 const token = pathParts[3];
 
@@ -59,6 +55,10 @@ setTimeout(() => {
     resetPassword(token);
   }
 }, 0);
+
+Events();
+
+createFooter();
 
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('user');
