@@ -51,6 +51,15 @@ Events();
 
 createFooter();
 
+const pathParts = window.location.pathname.split('/');
+const token = pathParts[3];
+
+setTimeout(() => {
+  if (token) {
+    resetPassword(token);
+  }
+}, 0);
+
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('user');
 });
