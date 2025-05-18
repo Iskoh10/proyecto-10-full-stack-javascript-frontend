@@ -3,6 +3,7 @@ import Events from './pages/Events/Events';
 import createNavbar from './components/Navbar/navbar';
 import createToggle from './components/ToggleTheme/toggleTheme';
 import createFooter from './components/Footer/footer';
+import resetPassword from './components/ResetPassword/resetPassword';
 
 const app = document.querySelector('#app');
 app.className = 'flex-container';
