@@ -16,7 +16,7 @@ body.night {
   top: 2%;
   width: 10px;
   height: 10px;
-  z-index: 0;
+  z-index: 2;
 }
 
 .sun-moon {
